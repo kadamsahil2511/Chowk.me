@@ -1,0 +1,662 @@
+[
+  {
+    "id": 1,
+    "title": "Looking for Co-founder",
+    "description": "For my tech base startup focusing on local delivery solutions. Need someone with marketing background.",
+    "username": "startupguru",
+    "location": "Dehradun",
+    "category": "Business",
+    "image": "https://picsum.photos/450/280",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Hiring a video editor",
+    "description": "Need editor for one reel, send your work on WhatsApp. Fast turnaround required.",
+    "username": "freelancer007",
+    "location": "Dehradun",
+    "category": "Freelance",
+    "image": "https://picsum.photos/380/260",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Going on a trip to Maldevta",
+    "description": "Anyone wants to join? I have my bike. Planning this weekend, good vibes only!",
+    "username": "riderx",
+    "location": "Dehradun",
+    "category": "Travel",
+    "image": "https://picsum.photos/420/300",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Used iPhone 13 For Sale",
+    "description": "10 months old, excellent condition with original box and accessories. No scratches.",
+    "username": "gadgetlover",
+    "location": "Dehradun",
+    "category": "Sale",
+    "image": "https://picsum.photos/400/270",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Music Concert at Pacific Mall",
+    "description": "Local bands performing this Saturday. Entry free for students with valid ID.",
+    "username": "musicvibes",
+    "location": "Dehradun",
+    "category": "Events",
+    "image": "https://picsum.photos/460/290",
+    "featured": true
+  },
+  {
+    "id": 6,
+    "title": "Free Mathematics Tuitions",
+    "description": "Helping class 10 students with board preparation. Weekend sessions at Gandhi Park.",
+    "username": "mathwhiz",
+    "location": "Dehradun",
+    "category": "Education",
+    "image": "https://picsum.photos/390/250",
+    "featured": false
+  },
+  {
+    "id": 7,
+    "title": "Lost Golden Retriever",
+    "description": "My dog went missing near Clock Tower yesterday evening. Responds to 'Bruno'. Reward offered.",
+    "username": "petlover",
+    "location": "Dehradun", 
+    "category": "Lost",
+    "image": "https://picsum.photos/430/275",
+    "featured": false
+  },
+  {
+    "id": 8,
+    "title": "50% Off at Doon Darbar",
+    "description": "Special discount for college students. Valid till month end. Just show your ID card.",
+    "username": "foodiehunt",
+    "location": "Dehradun",
+    "category": "Food",
+    "image": "https://picsum.photos/410/260",
+    "featured": true
+  },
+  {
+    "id": 9,
+    "title": "Spoken English Classes",
+    "description": "New batch starting next week. Specializing in interview preparation and daily conversation.",
+    "username": "englishpro",
+    "location": "Dehradun",
+    "category": "Education",
+    "image": "https://picsum.photos/400/250",
+    "featured": false
+  },
+  {
+    "id": 10,
+    "title": "Room for Rent near UPES",
+    "description": "Single room with attached bathroom. Wifi included. No security deposit for students.",
+    "username": "homeowner",
+    "location": "Dehradun",
+    "category": "Housing",
+    "image": "https://picsum.photos/440/280",
+    "featured": false
+  },
+  {
+    "id": 11,
+    "title": "Co-working Space Available",
+    "description": "Modern co-working space with high-speed internet, coffee, and meeting rooms in South Delhi.",
+    "username": "workspacepro",
+    "location": "Delhi",
+    "category": "Business",
+    "image": "https://picsum.photos/420/280",
+    "featured": true
+  },
+  {
+    "id": 12,
+    "title": "Graphic Designer Needed",
+    "description": "Looking for a skilled graphic designer for logo and branding work for a new restaurant.",
+    "username": "brandmaster",
+    "location": "Delhi",
+    "category": "Freelance",
+    "image": "https://picsum.photos/410/270",
+    "featured": false
+  },
+  {
+    "id": 13,
+    "title": "Best Street Food Tour",
+    "description": "Join our weekend food tour exploring the best street food in Chandni Chowk. Limited spots available.",
+    "username": "delhifoodie",
+    "location": "Delhi",
+    "category": "Food",
+    "image": "https://picsum.photos/430/260",
+    "featured": true
+  },
+  {
+    "id": 14,
+    "title": "MacBook Pro M1 for Sale",
+    "description": "2021 model, 16GB RAM, 512GB SSD. Mint condition with AppleCare+ until 2024.",
+    "username": "techseller",
+    "location": "Delhi",
+    "category": "Sale",
+    "image": "https://picsum.photos/400/260",
+    "featured": false
+  },
+  {
+    "id": 15,
+    "title": "Standup Comedy Night",
+    "description": "Famous comedians performing live at Habitat Centre this Friday. Tickets selling fast!",
+    "username": "laughfactory",
+    "location": "Delhi",
+    "category": "Events",
+    "image": "https://picsum.photos/420/270",
+    "featured": false
+  },
+  {
+    "id": 16,
+    "title": "Web Development Workshop",
+    "description": "Free two-day workshop on React.js at our Powai campus. Certificate provided.",
+    "username": "techmentor",
+    "location": "Mumbai",
+    "category": "Education",
+    "image": "https://picsum.photos/410/280",
+    "featured": true
+  },
+  {
+    "id": 17,
+    "title": "Lost Camera at Marine Drive",
+    "description": "Lost my Sony A7III near Marine Drive yesterday evening. Substantial reward offered.",
+    "username": "photographer",
+    "location": "Mumbai",
+    "category": "Lost",
+    "image": "https://picsum.photos/430/270",
+    "featured": false
+  },
+  {
+    "id": 18,
+    "title": "Weekend Trip to Lonavala",
+    "description": "Planning a weekend getaway to Lonavala, have 3 spots in my car. Share fuel cost.",
+    "username": "travelbug",
+    "location": "Mumbai",
+    "category": "Travel",
+    "image": "https://picsum.photos/440/290",
+    "featured": true
+  },
+  {
+    "id": 19,
+    "title": "2BHK for Rent in Andheri",
+    "description": "Fully furnished apartment with modern amenities, 5 minutes from metro station.",
+    "username": "propertyguru",
+    "location": "Mumbai",
+    "category": "Housing",
+    "image": "https://picsum.photos/420/260",
+    "featured": false
+  },
+  {
+    "id": 20,
+    "title": "Startup Networking Event",
+    "description": "Connect with entrepreneurs and investors at our monthly meetup in Koramangala.",
+    "username": "startupbangalore",
+    "location": "Bangalore",
+    "category": "Business",
+    "image": "https://picsum.photos/430/270",
+    "featured": true
+  },
+  {
+    "id": 21,
+    "title": "Content Writer Needed",
+    "description": "Looking for someone to write blog posts about technology and innovation.",
+    "username": "techmedia",
+    "location": "Bangalore",
+    "category": "Freelance",
+    "image": "https://picsum.photos/410/260",
+    "featured": false
+  },
+  {
+    "id": 22,
+    "title": "Sunday Brunch Deal",
+    "description": "All-you-can-eat Sunday brunch at 30% off at our Indiranagar restaurant.",
+    "username": "foodiedelights",
+    "location": "Bangalore",
+    "category": "Food",
+    "image": "https://picsum.photos/420/280",
+    "featured": false
+  },
+  {
+    "id": 23,
+    "title": "Trekking Group for Nandi Hills",
+    "description": "Early morning trek to catch the sunrise at Nandi Hills this Saturday. All fitness levels welcome.",
+    "username": "hikerlife",
+    "location": "Bangalore",
+    "category": "Travel",
+    "image": "https://picsum.photos/440/280",
+    "featured": true
+  },
+  {
+    "id": 24,
+    "title": "1BHK near Hinjewadi IT Park",
+    "description": "Well-maintained flat with parking available for immediate occupancy. No brokerage.",
+    "username": "homedeals",
+    "location": "Pune",
+    "category": "Housing",
+    "image": "https://picsum.photos/420/260",
+    "featured": false
+  },
+  {
+    "id": 25,
+    "title": "Live Music at Koregaon Park",
+    "description": "Local band performing classic rock this Thursday. Entry with cover charge includes one drink.",
+    "username": "musicpune",
+    "location": "Pune",
+    "category": "Events",
+    "image": "https://picsum.photos/430/270",
+    "featured": true
+  },
+  {
+    "id": 26,
+    "title": "Weekend Coding Bootcamp",
+    "description": "Intensive coding workshop for beginners. Learn the basics of programming in a weekend.",
+    "username": "codemaster",
+    "location": "Pune",
+    "category": "Education",
+    "image": "https://picsum.photos/410/260",
+    "featured": false
+  },
+  {
+    "id": 27,
+    "title": "Gaming PC Components for Sale",
+    "description": "RTX 3080, Ryzen 9 5900X, 32GB RAM and more. Selling individually or as complete build.",
+    "username": "gamerbuild",
+    "location": "Pune",
+    "category": "Sale",
+    "image": "https://picsum.photos/430/280",
+    "featured": false
+  },
+  {
+    "id": 28,
+    "title": "Lost Wallet in Viman Nagar",
+    "description": "Black leather wallet lost near Phoenix Mall. Contains important IDs. Please contact if found.",
+    "username": "searchingwallet",
+    "location": "Pune",
+    "category": "Lost",
+    "image": "https://picsum.photos/400/260",
+    "featured": false
+  },
+  {
+    "id": 29,
+    "title": "Digital Marketing Workshop",
+    "description": "Learn SEO, social media marketing, and content strategy in our two-day intensive course.",
+    "username": "marketingguru",
+    "location": "Mumbai",
+    "category": "Education",
+    "image": "https://picsum.photos/420/270",
+    "featured": false
+  },
+  {
+    "id": 30,
+    "title": "Authentic South Indian Food Festival",
+    "description": "Three-day food festival featuring cuisine from Kerala, Tamil Nadu, Karnataka, and Andhra Pradesh.",
+    "username": "southfoods",
+    "location": "Delhi",
+    "category": "Food",
+    "image": "https://picsum.photos/440/280",
+    "featured": true
+  },
+  {
+    "id": 31,
+    "title": "IT Project Manager Needed",
+    "description": "Leading technology firm seeking experienced IT project manager for immediate joining. 5+ years experience required.",
+    "username": "techhiring",
+    "location": "Hyderabad",
+    "category": "Business",
+    "image": "https://picsum.photos/430/265",
+    "featured": true
+  },
+  {
+    "id": 32,
+    "title": "Freelance App Developer",
+    "description": "Looking for React Native developer to build a food delivery app. 3-month contract with possibility of extension.",
+    "username": "appstartup",
+    "location": "Hyderabad",
+    "category": "Freelance",
+    "image": "https://picsum.photos/425/270",
+    "featured": false
+  },
+  {
+    "id": 33,
+    "title": "Biryani Fest - 50% Off",
+    "description": "Annual biryani festival with varieties from across India. Limited time promotion at all our branches.",
+    "username": "biryanilover",
+    "location": "Hyderabad",
+    "category": "Food",
+    "image": "https://picsum.photos/420/275",
+    "featured": true
+  },
+  {
+    "id": 34,
+    "title": "Weekend Getaway to Ramoji Film City",
+    "description": "Join our group tour to Ramoji Film City this weekend. Transportation and entry tickets included.",
+    "username": "hyderabadtours",
+    "location": "Hyderabad",
+    "category": "Travel",
+    "image": "https://picsum.photos/440/285",
+    "featured": false
+  },
+  {
+    "id": 35,
+    "title": "Lost Gold Bracelet",
+    "description": "Lost a gold bracelet near Charminar on Monday evening. Family heirloom. Generous reward offered.",
+    "username": "searchingitem",
+    "location": "Hyderabad",
+    "category": "Lost",
+    "image": "https://picsum.photos/410/260",
+    "featured": false
+  },
+  {
+    "id": 36,
+    "title": "Tech Conference 2025",
+    "description": "Annual tech conference with speakers from Google, Microsoft and local startups. Early bird tickets available.",
+    "username": "techevents",
+    "location": "Hyderabad",
+    "category": "Events",
+    "image": "https://picsum.photos/450/280",
+    "featured": true
+  },
+  {
+    "id": 37,
+    "title": "Data Science Bootcamp",
+    "description": "Comprehensive 12-week course covering Python, SQL, machine learning and data visualization.",
+    "username": "dataeducator",
+    "location": "Hyderabad",
+    "category": "Education",
+    "image": "https://picsum.photos/430/270",
+    "featured": false
+  },
+  {
+    "id": 38,
+    "title": "Brand New OnePlus 12 For Sale",
+    "description": "Unwanted gift, never opened. Full warranty with bill and all accessories included.",
+    "username": "gadgetstore",
+    "location": "Hyderabad",
+    "category": "Sale",
+    "image": "https://picsum.photos/420/275",
+    "featured": false
+  },
+  {
+    "id": 39,
+    "title": "3BHK Luxury Apartment for Rent",
+    "description": "Spacious apartment in gated community with pool, gym, and 24/7 security in Gachibowli area.",
+    "username": "premiumproperty",
+    "location": "Hyderabad",
+    "category": "Housing",
+    "image": "https://picsum.photos/440/280",
+    "featured": true
+  },
+  {
+    "id": 40,
+    "title": "Small Business Consultation",
+    "description": "Offering free 1-hour consultation for local businesses on tax planning and financial strategy.",
+    "username": "bizadvisor",
+    "location": "Chennai",
+    "category": "Business",
+    "image": "https://picsum.photos/425/275",
+    "featured": false
+  },
+  {
+    "id": 41,
+    "title": "Freelance Video Production",
+    "description": "Professional videographer available for events, corporate videos and social media content creation.",
+    "username": "videopro",
+    "location": "Chennai",
+    "category": "Freelance",
+    "image": "https://picsum.photos/435/270",
+    "featured": true
+  },
+  {
+    "id": 42,
+    "title": "Traditional Chettinad Food Festival",
+    "description": "Experience authentic Chettinad cuisine with special dishes prepared by master chefs from Karaikudi.",
+    "username": "southernspice",
+    "location": "Chennai",
+    "category": "Food",
+    "image": "https://picsum.photos/430/275",
+    "featured": true
+  },
+  {
+    "id": 43,
+    "title": "Day Trip to Mahabalipuram",
+    "description": "Guided historical tour to the UNESCO World Heritage site. Transportation and lunch included.",
+    "username": "tamilnadutourism",
+    "location": "Chennai",
+    "category": "Travel",
+    "image": "https://picsum.photos/440/280",
+    "featured": false
+  },
+  {
+    "id": 44,
+    "title": "Lost Black Backpack",
+    "description": "Left in auto-rickshaw near T Nagar on Thursday afternoon. Contains important documents and laptop.",
+    "username": "findmybag",
+    "location": "Chennai",
+    "category": "Lost",
+    "image": "https://picsum.photos/415/270",
+    "featured": false
+  },
+  {
+    "id": 45,
+    "title": "Carnatic Music Concert",
+    "description": "Featuring renowned vocalists and instrumentalists at The Music Academy. Limited seats available.",
+    "username": "musiclover",
+    "location": "Chennai",
+    "category": "Events",
+    "image": "https://picsum.photos/430/275",
+    "featured": true
+  },
+  {
+    "id": 46,
+    "title": "Engineering Entrance Exam Coaching",
+    "description": "Specialized coaching for JEE and other engineering entrance exams. Small batch sizes for personalized attention.",
+    "username": "examcoach",
+    "location": "Chennai",
+    "category": "Education",
+    "image": "https://picsum.photos/420/270",
+    "featured": false
+  },
+  {
+    "id": 47,
+    "title": "Royal Enfield Classic 350 for Sale",
+    "description": "2023 model in excellent condition. Single owner, all service records available. 5000 km driven.",
+    "username": "bikersclub",
+    "location": "Chennai",
+    "category": "Sale",
+    "image": "https://picsum.photos/430/280",
+    "featured": true
+  },
+  {
+    "id": 48,
+    "title": "Studio Apartment in Adyar",
+    "description": "Newly renovated studio with modern amenities, ideal for working professionals or students.",
+    "username": "rentalproperties",
+    "location": "Chennai",
+    "category": "Housing",
+    "image": "https://picsum.photos/425/270",
+    "featured": false
+  },
+  {
+    "id": 49,
+    "title": "Investment Opportunity in E-commerce",
+    "description": "Looking for angel investors for established e-commerce business with 200% YOY growth.",
+    "username": "growthinvestor",
+    "location": "Kolkata",
+    "category": "Business",
+    "image": "https://picsum.photos/440/275",
+    "featured": true
+  },
+  {
+    "id": 50,
+    "title": "Freelance Content Translation",
+    "description": "Professional translator available for Bengali to English and vice versa translation work.",
+    "username": "wordsmith",
+    "location": "Kolkata",
+    "category": "Freelance",
+    "image": "https://picsum.photos/420/265",
+    "featured": false
+  },
+  {
+    "id": 51,
+    "title": "Bengali Sweets Festival",
+    "description": "Traditional Bengali sweets and snacks festival featuring rare regional specialties from across Bengal.",
+    "username": "sweetlover",
+    "location": "Kolkata",
+    "category": "Food",
+    "image": "https://picsum.photos/435/280",
+    "featured": true
+  },
+  {
+    "id": 52,
+    "title": "Sundarban Weekend Tour",
+    "description": "Explore the world's largest mangrove forest with expert guides. Wildlife spotting and boat safari included.",
+    "username": "naturetours",
+    "location": "Kolkata",
+    "category": "Travel",
+    "image": "https://picsum.photos/445/285",
+    "featured": true
+  },
+  {
+    "id": 53,
+    "title": "Lost Prescription Glasses",
+    "description": "Black-framed glasses lost in a blue case near Park Street metro station. Urgent need.",
+    "username": "searchingglasses",
+    "location": "Kolkata",
+    "category": "Lost",
+    "image": "https://picsum.photos/410/260",
+    "featured": false
+  },
+  {
+    "id": 54,
+    "title": "Durga Puja Workshop",
+    "description": "Learn traditional art of pandal decoration and idol making from master craftsmen.",
+    "username": "pujacraft",
+    "location": "Kolkata",
+    "category": "Events",
+    "image": "https://picsum.photos/430/280",
+    "featured": true
+  },
+  {
+    "id": 55,
+    "title": "Creative Writing Classes",
+    "description": "Weekly classes focusing on fiction, poetry and screenplay writing. Suitable for all levels.",
+    "username": "writingguru",
+    "location": "Kolkata",
+    "category": "Education",
+    "image": "https://picsum.photos/425/275",
+    "featured": false
+  },
+  {
+    "id": 56,
+    "title": "Antique Gramophone for Sale",
+    "description": "Rare 1920s HMV gramophone in working condition with collection of vintage records.",
+    "username": "antiquedealer",
+    "location": "Kolkata",
+    "category": "Sale",
+    "image": "https://picsum.photos/430/270",
+    "featured": false
+  },
+  {
+    "id": 57,
+    "title": "Heritage Apartment in North Kolkata",
+    "description": "Beautifully preserved colonial-era apartment with modern amenities in a historical building.",
+    "username": "heritagehomes",
+    "location": "Kolkata",
+    "category": "Housing",
+    "image": "https://picsum.photos/440/280",
+    "featured": true
+  },
+  {
+    "id": 58,
+    "title": "Handcraft Business Partnership",
+    "description": "Looking for partner to expand traditional Rajasthani handicraft business to international markets.",
+    "username": "craftentrepreneur",
+    "location": "Jaipur",
+    "category": "Business",
+    "image": "https://picsum.photos/430/275",
+    "featured": true
+  },
+  {
+    "id": 59,
+    "title": "Freelance Jewelry Designer",
+    "description": "Skilled designer available for custom jewelry design work. Specializes in traditional and fusion designs.",
+    "username": "designerjewels",
+    "location": "Jaipur",
+    "category": "Freelance",
+    "image": "https://picsum.photos/420/270",
+    "featured": false
+  },
+  {
+    "id": 60,
+    "title": "Royal Rajasthani Thali Experience",
+    "description": "Authentic 16-course Rajasthani thali served in traditional style with live folk music.",
+    "username": "rajasthanifood",
+    "location": "Jaipur",
+    "category": "Food",
+    "image": "https://picsum.photos/435/275",
+    "featured": true
+  },
+  {
+    "id": 61,
+    "title": "Hot Air Balloon Safari",
+    "description": "Experience the Pink City from above with our sunrise hot air balloon safari over historical monuments.",
+    "username": "balloonadventures",
+    "location": "Jaipur",
+    "category": "Travel",
+    "image": "https://picsum.photos/440/280",
+    "featured": true
+  },
+  {
+    "id": 62,
+    "title": "Lost Passport Near Hawa Mahal",
+    "description": "Foreign passport lost while sightseeing at Hawa Mahal. Urgent as flight is in two days.",
+    "username": "touristhelp",
+    "location": "Jaipur",
+    "category": "Lost",
+    "image": "https://picsum.photos/410/265",
+    "featured": false
+  },
+  {
+    "id": 63,
+    "title": "Elephant Festival 2025",
+    "description": "Annual cultural celebration featuring decorated elephants, traditional music and dance performances.",
+    "username": "jaipurfestivals",
+    "location": "Jaipur",
+    "category": "Events",
+    "image": "https://picsum.photos/445/280",
+    "featured": true
+  },
+  {
+    "id": 64,
+    "title": "Blue Pottery Workshop",
+    "description": "Learn the traditional art of Jaipur Blue Pottery from master artisans. Materials provided.",
+    "username": "artisancrafts",
+    "location": "Jaipur",
+    "category": "Education",
+    "image": "https://picsum.photos/425/270",
+    "featured": false
+  },
+  {
+    "id": 65,
+    "title": "Vintage Rajasthani Furniture",
+    "description": "Collection of authentic hand-carved wooden furniture including chairs, tables and storage chests.",
+    "username": "vintagefinds",
+    "location": "Jaipur",
+    "category": "Sale",
+    "image": "https://picsum.photos/430/275",
+    "featured": false
+  },
+  {
+    "id": 66,
+    "title": "Haveli Stay Experience",
+    "description": "Restored heritage haveli offering luxury accommodations with traditional Rajasthani architecture.",
+    "username": "heritagestays",
+    "location": "Jaipur",
+    "category": "Housing",
+    "image": "https://picsum.photos/440/285",
+    "featured": true
+  }
+]
