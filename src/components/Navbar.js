@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, ChevronDown, MapPin, Menu, X } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -7,25 +7,31 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
+  const [localActiveCategory, setLocalActiveCategory] = useState(activeCategory);
   
   const cities = ['Dehradun', 'Delhi', 'Mumbai', 'Bangalore', 'Pune', 'Hyderabad', 'Chennai', 'Kolkata', 'Jaipur'];
   const categories = [
-    { name: 'All', icon: '🧃' },
+    { name: 'All', icon: '' },
     { name: 'Business', icon: '💼' },
-    { name: 'Freelance', icon: '💻' },
-    { name: 'Food', icon: '🍛' },
+    { name: 'Freelance', icon: '👤' },
+    { name: '18+', icon: '🔞' },
+    { name: 'Finance', icon: '💰' },
     { name: 'Travel', icon: '🧳' },
-    { name: 'Lost', icon: '🧣' },
-    { name: 'Events', icon: '🎉' },
-    { name: 'Education', icon: '🎓' },
-    { name: 'Sale', icon: '🛍️' },
-    { name: 'Housing', icon: '🏠' }
+    { name: 'More', icon: '' }
   ];
+
+  // Sync local active category with the one passed from props
+  useEffect(() => {
+    setLocalActiveCategory(activeCategory);
+  }, [activeCategory]);
   
   const handleCategoryClick = (category) => {
+    setLocalActiveCategory(category);
     if (onCategorySelect) {
       onCategorySelect(category);
     }
+    setMobileCategoriesOpen(false);
   };
   
   const handleCitySelect = (cityName) => {
@@ -41,122 +47,173 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
 
   const handlePostClick = () => {
     navigate('/create-post');
+    setMobileMenuOpen(false);
   };
   
   return (
-    <nav className="bg-white shadow-soft w-full sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-3">
-        {/* Top Navbar: Logo, Search, City, Post Button */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-3">
-          {/* Logo & Mobile Menu Toggle */}
-          <div className="flex items-center justify-between w-full md:w-auto">
-            <Link to="/" className="font-semibold text-2xl">
-              <span className="font-bold bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent">Chowk</span>
+    <>
+      {/* Main Navbar - fixed at top */}
+      <nav className="bg-[#EDF3F8] border-b border-[#CBD5E1] w-full sticky top-0 z-50">
+        <div className="flex items-center justify-between h-[80px]">
+          {/* Logo */}
+          <div className="flex items-center pl-6 md:pl-10">
+            <Link to="/" className="font-bold text-3xl text-black font-['Inter']">
+              Chowk
             </Link>
             
             <button 
-              className="md:hidden text-gray-500 hover:text-gray-700"
+              className="md:hidden ml-3 text-gray-500 hover:text-gray-700"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
           
           {/* Navigation Links - Desktop */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="text-text-primary hover:text-black font-medium">Home</Link>
-            <Link to="/categories" className="text-text-secondary hover:text-black">Categories</Link>
-            <Link to="/about" className="text-text-secondary hover:text-black">About</Link>
-            <Link to="/contact" className="text-text-secondary hover:text-black">Contact</Link>
+          <div className="hidden md:flex items-center space-x-12">
+            <Link to="/" className="font-medium text-gray-600 hover:text-black cursor-pointer">
+              Home
+            </Link>
+            <Link to="/about" className="font-medium text-gray-600 hover:text-black cursor-pointer">
+              About
+            </Link>
+            <Link to="/features" className="font-medium text-gray-600 hover:text-black cursor-pointer">
+              Features
+            </Link>
           </div>
           
-          {/* City Selector */}
-          <div className="relative">
-            <div 
-              className="flex items-center gap-1.5 cursor-pointer text-gray-700 hover:text-black border border-gray-200 px-3 py-1.5 rounded-pill transition-all hover:border-gray-300"
-              onClick={() => setShowCityDropdown(!showCityDropdown)}
+          {/* Login & Post Buttons */}
+          <div className="flex items-center">
+            <button className="hidden md:flex items-center justify-center w-[180px] bg-white text-gray-800 font-medium hover:text-black transition-colors duration-200 h-[80px] border-l border-[#CBD5E1]">
+              Log in
+            </button>
+            <button 
+              onClick={handlePostClick}
+              className="bg-[#E1B845] text-gray-900 font-medium w-[180px] flex items-center justify-center h-[80px] hover:bg-[#d9ae34] transition-colors duration-200"
             >
-              <MapPin size={16} className="text-gray-500" />
-              <span className="font-medium">{selectedCity}</span>
-              <ChevronDown size={14} className={`transition-transform duration-200 ${showCityDropdown ? 'rotate-180' : ''}`} />
-            </div>
-            
-            {showCityDropdown && (
-              <div className="absolute top-full right-0 mt-1 bg-white shadow-card rounded-lg py-2 w-40 z-50 max-h-80 overflow-y-auto">
-                {cities.map((cityName) => (
-                  <div 
-                    key={cityName}
-                    className={`px-4 py-2 hover:bg-gray-50 cursor-pointer ${
-                      selectedCity === cityName ? 'font-medium bg-gray-50' : ''
-                    }`}
-                    onClick={() => handleCitySelect(cityName)}
-                  >
-                    {cityName}
-                  </div>
-                ))}
-              </div>
-            )}
+              Post
+            </button>
           </div>
-          
-          {/* Post Button */}
-          <button 
-            onClick={handlePostClick}
-            className="bg-black text-white font-medium px-6 py-2 rounded-pill hover:bg-gray-800 transition-colors"
-          >
-            Post
-          </button>
         </div>
         
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100 mt-3">
-            <div className="flex flex-col space-y-3">
-              <Link to="/" className="py-2 hover:bg-gray-50 px-2 rounded font-medium">Home</Link>
-              <Link to="/categories" className="py-2 hover:bg-gray-50 px-2 rounded">Categories</Link>
-              <Link to="/about" className="py-2 hover:bg-gray-50 px-2 rounded">About</Link>
-              <Link to="/contact" className="py-2 hover:bg-gray-50 px-2 rounded">Contact</Link>
+          <div className="md:hidden py-3 border-t border-gray-100 px-6">
+            <div className="flex flex-col space-y-2">
+              <Link to="/" className="py-2 hover:bg-gray-50 px-2 font-medium flex items-center" onClick={() => setMobileMenuOpen(false)}>
+                Home
+              </Link>
+              <Link to="/about" className="py-2 hover:bg-gray-50 px-2 flex items-center" onClick={() => setMobileMenuOpen(false)}>
+                About
+              </Link>
+              <Link to="/features" className="py-2 hover:bg-gray-50 px-2 flex items-center" onClick={() => setMobileMenuOpen(false)}>
+                Features
+              </Link>
+              <button className="py-2 border border-gray-300 text-gray-800 font-medium hover:bg-gray-50 w-full text-center mt-2">
+                Log in
+              </button>
             </div>
           </div>
         )}
-        
-        {/* Search Bar */}
-        <form className="relative w-full mt-4 mb-2" onSubmit={handleSearch}>
-          <input
-            type="text"
-            placeholder={`Search for posts in ${selectedCity}...`}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-5 py-3 rounded-pill border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
-          />
-          <button type="submit" className="absolute right-4 top-3 text-gray-500">
-            <Search size={20} />
-          </button>
-        </form>
-        
-        {/* Category Filters */}
-        <div className="mt-2 overflow-x-auto pb-2 no-scrollbar">
-          <div className="flex gap-2 whitespace-nowrap">
-            {categories.map((category) => (
+      </nav>
+      
+      {/* Search & Filter Area */}
+      <div className="bg-[#EDF3F8] py-5 px-4 md:px-10">
+        <div className="container mx-auto">
+          {/* City Selector and Search Bar */}
+          <div className="flex flex-col sm:flex-row gap-4 mb-6">
+            {/* City Selector Button */}
+            <div className="relative w-full sm:w-auto">
               <div 
-                key={category.name}
-                onClick={() => handleCategoryClick(category.name)}
-                className={`
-                  cursor-pointer px-3.5 py-2 rounded-pill text-sm transition-all
-                  flex items-center border 
-                  ${activeCategory === category.name ? 
-                    'bg-gray-100 border-gray-300 font-medium shadow-inner' : 
-                    'bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-50 shadow-soft'
-                  }
-                `}
+                className="flex items-center gap-1.5 cursor-pointer bg-black text-white px-4 py-2.5 rounded-full w-full sm:w-auto justify-center sm:justify-start"
+                onClick={() => setShowCityDropdown(!showCityDropdown)}
               >
-                <span className="mr-1.5">{category.icon}</span>
-                {category.name}
+                <span className="font-medium">{selectedCity}</span>
+                <ChevronDown size={16} className={`transition-transform duration-200 ${showCityDropdown ? 'rotate-180' : ''}`} />
               </div>
-            ))}
+              
+              {showCityDropdown && (
+                <div className="absolute top-full left-0 mt-1 bg-white shadow-md rounded-lg w-full sm:w-48 z-50 max-h-60 overflow-y-auto">
+                  {cities.map((cityName) => (
+                    <div 
+                      key={cityName}
+                      className={`px-3 py-2 hover:bg-gray-50 cursor-pointer text-sm ${
+                        selectedCity === cityName ? 'font-medium bg-gray-50' : ''
+                      }`}
+                      onClick={() => handleCitySelect(cityName)}
+                    >
+                      {cityName}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            {/* Search Bar */}
+            <form onSubmit={handleSearch} className="relative flex-grow">
+              <div className="relative">
+                <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                  <Search size={20} className="text-gray-400" />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2.5 rounded-full border border-[#D1D5DB] bg-white focus:outline-none focus:ring-1 focus:ring-gray-300 text-base"
+                />
+              </div>
+            </form>
+          </div>
+          
+          {/* Category Filters - Desktop */}
+          <div className="hidden md:block border-b border-[#CBD5E1] pb-2">
+            <div className="flex space-x-8">
+              {categories.map((category) => (
+                <div 
+                  key={category.name}
+                  onClick={() => handleCategoryClick(category.name)}
+                  className={`
+                    cursor-pointer pb-2 text-gray-600 transition-all duration-200
+                    flex items-center
+                    ${localActiveCategory === category.name ? 
+                      'border-b-2 border-black font-medium text-black' : 
+                      'hover:text-black'
+                    }
+                  `}
+                >
+                  {category.icon && <span className="mr-1.5">{category.icon}</span>}
+                  {category.name}
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Mobile Categories */}
+          <div className="md:hidden border-b border-[#CBD5E1] pb-2">
+            <div className="flex space-x-6 overflow-x-auto pb-2 hide-scrollbar">
+              {categories.map((category) => (
+                <div 
+                  key={category.name}
+                  onClick={() => handleCategoryClick(category.name)}
+                  className={`
+                    cursor-pointer pb-1 whitespace-nowrap transition-all duration-200
+                    flex items-center
+                    ${localActiveCategory === category.name ? 
+                      'border-b-2 border-black font-medium text-black' : 
+                      'text-gray-600 hover:text-black'
+                    }
+                  `}
+                >
+                  {category.icon && <span className="mr-1.5">{category.icon}</span>}
+                  {category.name}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </nav>
+    </>
   );
 };
 

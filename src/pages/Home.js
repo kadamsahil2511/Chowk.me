@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import FeatureSlider from '../components/FeatureSlider';
 import CategoryFilter from '../components/CategoryFilter';
 import PostCard from '../components/PostCard';
+import SkeletonLoader from '../components/SkeletonLoader';
 import { ShoppingBag, Check } from 'lucide-react';
 
 const Home = ({ selectedCategory, selectedCity }) => {
@@ -118,12 +119,35 @@ const Home = ({ selectedCategory, selectedCity }) => {
     
       {/* Featured Posts Slider */}
       {loading ? (
-        <div className="container mx-auto px-4 py-12 flex justify-center">
-          <div className="flex flex-col items-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-black mb-4"></div>
-            <p className="text-text-secondary">Loading amazing posts...</p>
-          </div>
-        </div>
+        <>
+          {/* Skeleton for Featured Posts */}
+          <section className="mb-10 pt-4">
+            <div className="container mx-auto px-4">
+              <div className="flex justify-between items-center mb-5">
+                <div className="w-40 h-7 bg-gray-200 animate-pulse rounded"></div>
+                <div className="flex gap-2">
+                  <div className="w-10 h-10 rounded-full bg-gray-200 animate-pulse"></div>
+                  <div className="w-10 h-10 rounded-full bg-gray-200 animate-pulse"></div>
+                </div>
+              </div>
+              
+              <div className="flex gap-5 overflow-hidden">
+                <SkeletonLoader type="feature" count={3} />
+              </div>
+            </div>
+          </section>
+          
+          {/* Skeleton for Main Content */}
+          <section className="pb-16">
+            <div className="container mx-auto px-4">
+              <div className="w-64 h-8 bg-gray-200 animate-pulse rounded mb-6"></div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <SkeletonLoader type="card" count={6} />
+              </div>
+            </div>
+          </section>
+        </>
       ) : (
         <>
           {featuredPosts.length > 0 && <FeatureSlider featuredPosts={featuredPosts} />}

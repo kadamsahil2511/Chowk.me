@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import PostCard from './PostCard';
+import SkeletonLoader from './SkeletonLoader';
 
-const FeatureSlider = ({ featuredPosts }) => {
+const FeatureSlider = ({ featuredPosts, loading = false }) => {
   const sliderRef = useRef(null);
 
   const scroll = (direction) => {
@@ -44,11 +45,19 @@ const FeatureSlider = ({ featuredPosts }) => {
           className="flex gap-5 overflow-x-auto pb-4 hide-scrollbar"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {featuredPosts.map(post => (
-            <div key={post.id} className="min-w-[300px] sm:min-w-[340px] flex-shrink-0">
-              <PostCard post={post} isFeatured={true} />
-            </div>
-          ))}
+          {loading ? (
+            <>
+              <SkeletonLoader type="feature" />
+              <SkeletonLoader type="feature" />
+              <SkeletonLoader type="feature" />
+            </>
+          ) : (
+            featuredPosts.map(post => (
+              <div key={post.id} className="min-w-[300px] sm:min-w-[340px] flex-shrink-0">
+                <PostCard post={post} isFeatured={true} />
+              </div>
+            ))
+          )}
         </div>
       </div>
     </section>
