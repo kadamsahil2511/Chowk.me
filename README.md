@@ -70,7 +70,3 @@ src/
 - Backend API integration
 - Search functionality
 - User profiles
-
-## Credits
-
-Design & Development: atrey.dev

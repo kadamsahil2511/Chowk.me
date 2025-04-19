@@ -1,49 +1,37 @@
 import React from 'react';
-import { Mail, Instagram, Linkedin, GithubIcon, ArrowUpRight } from 'lucide-react';
+import { Mail, Instagram, ArrowUpRight } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-gray-100 py-8">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center justify-center text-center">
-          <div className="flex items-center mb-5">
-            <span className="text-lg font-medium mr-1">vocal for local</span>
-            <ArrowUpRight size={18} />
+    <footer className="bg-black text-white py-6">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex items-center mb-4 md:mb-0">
+            <p className="text-xl font-medium">
+              vocal for local
+              <ArrowUpRight className="inline-block ml-1" size={18} />
+            </p>
           </div>
           
-          <div className="flex gap-6 mb-5">
+          <div className="flex items-center space-x-4 mb-4 md:mb-0">
             <a 
-              href="#" 
-              className="p-2 rounded-full bg-gray-50 hover:bg-gray-100 text-gray-600 transition-colors" 
+              href="mailto:contact@chowk.me" 
+              className="text-white hover:text-gray-300 transition-colors" 
               aria-label="Email"
             >
               <Mail size={20} />
             </a>
             <a 
-              href="#" 
-              className="p-2 rounded-full bg-gray-50 hover:bg-gray-100 text-gray-600 transition-colors" 
+              href="https://instagram.com/chowk.me" 
+              className="text-white hover:text-gray-300 transition-colors" 
               aria-label="Instagram"
             >
               <Instagram size={20} />
             </a>
-            <a 
-              href="#" 
-              className="p-2 rounded-full bg-gray-50 hover:bg-gray-100 text-gray-600 transition-colors" 
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </a>
-            <a 
-              href="#" 
-              className="p-2 rounded-full bg-gray-50 hover:bg-gray-100 text-gray-600 transition-colors" 
-              aria-label="GitHub"
-            >
-              <GithubIcon size={20} />
-            </a>
           </div>
           
-          <div className="text-sm text-gray-400">
-            made with ❤️ by <a href="#" className="text-gray-600 hover:text-black">atrey.dev</a>
+          <div>
+            <p className="text-xl font-medium">by atrey.dev</p>
           </div>
         </div>
       </div>
