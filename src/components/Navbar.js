@@ -84,12 +84,12 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
           
           {/* Login & Post Buttons */}
           <div className="flex items-center">
-            <button className="hidden md:flex items-center justify-center w-[180px] bg-white text-gray-800 font-medium hover:text-black transition-colors duration-200 h-[80px] border-l border-[#CBD5E1]">
+            <button className="hidden md:flex items-center justify-center w-[180px] bg-white text-gray-800 font-medium transition-colors duration-200 h-[80px] border-l border-[#CBD5E1] hover:bg-black hover:text-white">
               Log in
             </button>
             <button 
               onClick={handlePostClick}
-              className="bg-[#E1B845] text-gray-900 font-medium w-[180px] flex items-center justify-center h-[80px] hover:bg-[#d9ae34] transition-colors duration-200"
+              className="bg-[#E1B845] text-gray-900 font-medium w-[180px] flex items-center justify-center h-[80px] hover:bg-pink-500 hover:text-white transition-colors duration-200"
             >
               Post
             </button>
@@ -109,8 +109,14 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
               <Link to="/features" className="py-2 hover:bg-gray-50 px-2 flex items-center" onClick={() => setMobileMenuOpen(false)}>
                 Features
               </Link>
-              <button className="py-2 border border-gray-300 text-gray-800 font-medium hover:bg-gray-50 w-full text-center mt-2">
+              <button className="py-2 border border-gray-300 text-gray-800 font-medium hover:bg-black hover:text-white transition-colors duration-200 w-full text-center mt-2">
                 Log in
+              </button>
+              <button 
+                onClick={handlePostClick}
+                className="py-2 bg-[#E1B845] text-gray-900 font-medium hover:bg-pink-500 hover:text-white transition-colors duration-200 w-full text-center"
+              >
+                Post
               </button>
             </div>
           </div>
