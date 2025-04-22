@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Search, ChevronDown, MapPin, Menu, X } from 'lucide-react';
+import { MagnifyingGlass, CaretDown, MapPin, List, X } from 'phosphor-react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory = 'All' }) => {
+const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory = 'All', onPostClick }) => {
   const navigate = useNavigate();
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -15,7 +15,7 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
     { name: 'All', icon: '' },
     { name: 'Business', icon: '💼' },
     { name: 'Freelance', icon: '👤' },
-    { name: '18+', icon: '🔞' },
+    { name: '18+', icon: '🔞' }, 
     { name: 'Finance', icon: '💰' },
     { name: 'Travel', icon: '🧳' },
     { name: 'More', icon: '' }
@@ -45,8 +45,13 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
     // Search functionality can be implemented here
   };
 
+  // Updated to use onPostClick prop instead of navigating
   const handlePostClick = () => {
-    navigate('/create-post');
+    if (onPostClick) {
+      onPostClick();
+    } else {
+      navigate('/create-post'); // Fallback to navigation if prop not provided
+    }
     setMobileMenuOpen(false);
   };
   
@@ -65,7 +70,7 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
               className="md:hidden ml-3 text-gray-500 hover:text-gray-700"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              {mobileMenuOpen ? <X size={22} weight="bold" /> : <List size={22} weight="bold" />}
             </button>
           </div>
           
@@ -135,7 +140,11 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
                 onClick={() => setShowCityDropdown(!showCityDropdown)}
               >
                 <span className="font-medium">{selectedCity}</span>
-                <ChevronDown size={16} className={`transition-transform duration-200 ${showCityDropdown ? 'rotate-180' : ''}`} />
+                <CaretDown 
+                  size={16} 
+                  weight="bold"
+                  className={`transition-transform duration-200 ${showCityDropdown ? 'rotate-180' : ''}`} 
+                />
               </div>
               
               {showCityDropdown && (
@@ -159,7 +168,7 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
             <form onSubmit={handleSearch} className="relative flex-grow">
               <div className="relative">
                 <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                  <Search size={20} className="text-gray-400" />
+                  <MagnifyingGlass size={20} weight="bold" className="text-gray-400" />
                 </div>
                 <input
                   type="text"

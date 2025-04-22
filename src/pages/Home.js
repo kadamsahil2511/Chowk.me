@@ -6,7 +6,7 @@ import PostCard from '../components/PostCard';
 import SkeletonLoader from '../components/SkeletonLoader';
 import { ShoppingBag, Check } from 'lucide-react';
 
-const Home = ({ selectedCategory, selectedCity }) => {
+const Home = ({ selectedCategory, selectedCity, postCreated }) => {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [featuredPosts, setFeaturedPosts] = useState([]);
@@ -61,10 +61,11 @@ const Home = ({ selectedCategory, selectedCity }) => {
     fetchPosts();
   }, [fetchPosts]);
   
-  // Show notification when new post is added
+  // Show notification when new post is added via location state or when postCreated prop is true
   useEffect(() => {
-    if (location.state?.newPostAdded) {
+    if (location.state?.newPostAdded || postCreated) {
       setNotification('Your post was created successfully!');
+      fetchPosts(); // Refresh posts to show the newly created one
       
       // Hide notification after 5 seconds
       const timer = setTimeout(() => {
@@ -73,7 +74,7 @@ const Home = ({ selectedCategory, selectedCity }) => {
       
       return () => clearTimeout(timer);
     }
-  }, [location.state]);
+  }, [location.state, postCreated, fetchPosts]);
 
   // Modified filter behavior - filter by both category and city
   const handleCategorySelect = (category) => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { MapPin, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { MapPin, ArrowUpRight } from 'phosphor-react';
 import getPlaceholderImage from '../utils/imagePlaceholders';
 
 const PostCard = ({ post }) => {
@@ -23,7 +23,7 @@ const PostCard = ({ post }) => {
     const avatarId = avatarList[seed % avatarList.length];
     
     // Return the avatar URL with the selected ID
-    return `https://avatar.iran.liara.run/public/${avatarId}`;
+    return `https://avatar.iran.liara.run/public/${useFemalePath ? 'girl' : ''}/${avatarId}`;
   };
 
   const getCategoryIcon = (category) => {
@@ -51,7 +51,7 @@ const PostCard = ({ post }) => {
   };
 
   return (
-    <div className="bg-white overflow-hidden transition-all duration-300 hover:shadow-md border border-gray-100">
+    <div className="bg-white overflow-hidden transition-all duration-300 hover:shadow-[5px_5px_0px_0px_rgba(255,20,147,0.3)] border border-gray-100">
       {/* Image Part */}
       <div className="relative">
         <img 
@@ -76,6 +76,7 @@ const PostCard = ({ post }) => {
               {post.title}
               <ArrowUpRight 
                 size={18}
+                weight="bold"
                 className="absolute right-0 top-1 opacity-0 group-hover:opacity-100 transition-opacity"
               />
             </h3>
@@ -105,7 +106,11 @@ const PostCard = ({ post }) => {
         {/* Footer with location and category */}
         <div className="flex items-center justify-between text-sm pt-2 border-t border-gray-100">
           <div className="flex items-center">
-            <MapPin size={14} className="mr-1 text-gray-400" />
+            <MapPin 
+              size={14} 
+              weight="fill"
+              className="mr-1 text-gray-400" 
+            />
             <span className="text-gray-500">{post.location}</span>
           </div>
           

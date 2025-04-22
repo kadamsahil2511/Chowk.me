@@ -4,11 +4,24 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import CreatePost from './pages/CreatePost';
+import PostFormModal from './components/PostFormModal';
 import './App.css';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedCity, setSelectedCity] = useState('Dehradun'); // Default city
+  const [isPostModalOpen, setIsPostModalOpen] = useState(false);
+  const [postCreated, setPostCreated] = useState(false);
+
+  // Handle modal close event
+  const handleModalClose = (success = false) => {
+    setIsPostModalOpen(false);
+    if (success) {
+      setPostCreated(true);
+      // Reset post created notification after a delay
+      setTimeout(() => setPostCreated(false), 5000);
+    }
+  };
 
   return (
     <Router>
@@ -17,15 +30,23 @@ function App() {
           onCategorySelect={setSelectedCategory} 
           selectedCity={selectedCity}
           onCityChange={setSelectedCity}
+          onPostClick={() => setIsPostModalOpen(true)}
         />
         <main className="flex-grow pt-6">
           <Routes>
-            <Route path="/" element={<Home selectedCategory={selectedCategory} selectedCity={selectedCity} />} />
+            <Route path="/" element={<Home selectedCategory={selectedCategory} selectedCity={selectedCity} postCreated={postCreated} />} />
             <Route path="/create-post" element={<CreatePost defaultCity={selectedCity} />} />
             {/* Additional routes can be added here */}
           </Routes>
         </main>
         <Footer />
+        
+        {/* Post creation modal */}
+        <PostFormModal 
+          isOpen={isPostModalOpen} 
+          onClose={handleModalClose} 
+          defaultCity={selectedCity} 
+        />
       </div>
     </Router>
   );
