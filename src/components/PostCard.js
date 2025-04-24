@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { MapPin, ArrowUpRight } from 'phosphor-react';
 import getPlaceholderImage from '../utils/imagePlaceholders';
 
-const PostCard = ({ post }) => {
+const PostCard = ({ post, onOpenModal }) => {
   const [imageDimensions] = useState({ width: 400, height: 300 });
 
   // Get avatar URL using specific IDs from avatar.iran.liara.run
@@ -50,8 +49,17 @@ const PostCard = ({ post }) => {
     return getPlaceholderImage(post.category, imageDimensions);
   };
 
+  const handlePostClick = () => {
+    if (onOpenModal) {
+      onOpenModal(post);
+    }
+  };
+
   return (
-    <div className="bg-white overflow-hidden transition-all duration-300 hover:shadow-[5px_5px_0px_0px_rgba(255,20,147,0.3)] border border-gray-100">
+    <div 
+      className="bg-white overflow-hidden transition-all duration-300 hover:shadow-[5px_5px_0px_0px_rgba(255,20,147,0.3)] border border-gray-100 cursor-pointer"
+      onClick={handlePostClick}
+    >
       {/* Image Part */}
       <div className="relative">
         <img 
@@ -71,7 +79,7 @@ const PostCard = ({ post }) => {
       <div className="p-4">
         {/* Title with arrow link */}
         <div className="group">
-          <Link to={`/post/${post.id}`} className="inline-block">
+          <div className="inline-block">
             <h3 className="font-bold text-xl mb-2 pr-6 relative">
               {post.title}
               <ArrowUpRight 
@@ -80,7 +88,7 @@ const PostCard = ({ post }) => {
                 className="absolute right-0 top-1 opacity-0 group-hover:opacity-100 transition-opacity"
               />
             </h3>
-          </Link>
+          </div>
         </div>
         
         {/* Description */}

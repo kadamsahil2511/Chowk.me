@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import FeatureSlider from '../components/FeatureSlider';
 import CategoryFilter from '../components/CategoryFilter';
 import PostCard from '../components/PostCard';
+import PostDetailsModal from '../components/PostDetailsModal';
 import SkeletonLoader from '../components/SkeletonLoader';
 import { ShoppingBag, Check } from 'lucide-react';
 
@@ -13,10 +14,32 @@ const Home = ({ selectedCategory, selectedCity, postCreated }) => {
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState('All');
   const [notification, setNotification] = useState('');
+  const [selectedPost, setSelectedPost] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   const location = useLocation();
   
-  const categories = ['All', 'Business', 'Freelance', 'Food', 'Travel', 'Lost', 'Events', 'Education', 'Sale', 'Housing'];
+  // Function to handle opening the post details modal
+  const handlePostClick = (post) => {
+    setSelectedPost(post);
+    setIsModalOpen(true);
+  };
+  
+  // Function to close the modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  
+  // Full list of categories including the "More" option for dropdown
+  const categories = [
+    'All', 'Business', 'Freelance', '18+', 'Finance', 'Travel', 'More',
+    // General Categories
+    'Tech', 'Education', 'Events', 'Real Estate', 'Health & Fitness',
+    // Casual & Lifestyle
+    'Food', 'Entertainment', 'Fashion & Beauty', 'Automobile', 'Gaming',
+    // Community & Local Needs
+    'Lost & Found', 'Social Causes', 'Buying & Selling', 'Legal & Law', 'Miscellaneous', 'Housing', 'Sale'
+  ];
 
   // Fetch and combine posts from API and localStorage
   const fetchPosts = useCallback(async () => {
@@ -151,7 +174,7 @@ const Home = ({ selectedCategory, selectedCity, postCreated }) => {
         </>
       ) : (
         <>
-          {featuredPosts.length > 0 && <FeatureSlider featuredPosts={featuredPosts} />}
+          {featuredPosts.length > 0 && <FeatureSlider featuredPosts={featuredPosts} onOpenModal={handlePostClick} />}
           
           {/* Main Content: On the Market */}
           <section className="pb-16">
@@ -176,6 +199,7 @@ const Home = ({ selectedCategory, selectedCity, postCreated }) => {
                       key={post.id} 
                       post={post} 
                       isHighlighted={activeCategory !== 'All' && post.category === activeCategory}
+                      onOpenModal={handlePostClick}
                     />
                   ))
                 ) : (
@@ -195,6 +219,15 @@ const Home = ({ selectedCategory, selectedCity, postCreated }) => {
             </div>
           </section>
         </>
+      )}
+      
+      {/* Post Details Modal */}
+      {isModalOpen && (
+        <PostDetailsModal 
+          post={selectedPost} 
+          onClose={closeModal} 
+          isOpen={isModalOpen}
+        />
       )}
     </div>
   );

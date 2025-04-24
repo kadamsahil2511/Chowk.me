@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import PostCard from './PostCard';
 import SkeletonLoader from './SkeletonLoader';
 
-const FeatureSlider = ({ featuredPosts, loading = false }) => {
+const FeatureSlider = ({ featuredPosts, loading = false, onOpenModal }) => {
   const sliderRef = useRef(null);
 
   const scroll = (direction) => {
@@ -18,7 +18,7 @@ const FeatureSlider = ({ featuredPosts, loading = false }) => {
     <section className="mb-10 pt-4">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-5">
-          <h2 className="text-xl md:text-2xl font-bold flex items-center text-text-primary">
+          <h2 className="text-xl md:text-2xl font-bold flex items-center text-text-primary font-playfair feature-heading">
             <Sparkles size={20} className="mr-2 text-yellow-500" />
             Today's Feature
           </h2>
@@ -54,7 +54,7 @@ const FeatureSlider = ({ featuredPosts, loading = false }) => {
           ) : (
             featuredPosts.map(post => (
               <div key={post.id} className="min-w-[300px] sm:min-w-[340px] flex-shrink-0">
-                <PostCard post={post} isFeatured={true} />
+                <PostCard post={post} isFeatured={true} onOpenModal={onOpenModal} />
               </div>
             ))
           )}
