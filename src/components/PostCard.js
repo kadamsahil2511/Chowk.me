@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { MapPin, ArrowUpRight, Link } from 'phosphor-react';
+import { MapPin, ArrowUpRight, Link as LinkIcon } from 'phosphor-react';
+import { Link } from 'react-router-dom';
 import getPlaceholderImage from '../utils/imagePlaceholders';
 
 const PostCard = ({ post, onOpenModal }) => {
@@ -22,7 +23,7 @@ const PostCard = ({ post, onOpenModal }) => {
     const avatarId = avatarList[seed % avatarList.length];
     
     // Return the avatar URL with the selected ID
-    return `https://avatar.iran.liara.run/public/${useFemalePath ? 'girl' : ''}/${avatarId}`;
+    return `https://avatar.iran.liara.run/public/${avatarId}`;
   };
 
   const getCategoryIcon = (category) => {
@@ -77,7 +78,7 @@ const PostCard = ({ post, onOpenModal }) => {
         {/* Link indicator badge */}
         {post.link && (
           <div className="absolute top-3 left-3 bg-blue-500 bg-opacity-70 text-white text-xs px-3 py-1 rounded-full flex items-center">
-            <Link size={12} weight="bold" className="mr-1" />
+            <LinkIcon size={12} weight="bold" className="mr-1" />
             <span>Link</span>
           </div>
         )}
@@ -106,17 +107,23 @@ const PostCard = ({ post, onOpenModal }) => {
         
         {/* User with avatar from avatar-placeholder API */}
         <div className="flex items-center mb-4">
-          <img 
-            src={getAvatarUrl(post.username)}
-            alt={`${post.username}'s avatar`}
-            className="w-8 h-8 rounded-full mr-2"
-            onError={(e) => {
-              // Fallback in case the avatar API fails
-              e.target.onerror = null;
-              e.target.src = "https://avatar.iran.liara.run/public/17";
-            }}
-          />
-          <span className="text-gray-500 text-sm">{post.username}</span>
+          <Link 
+            to={`/user/${post.username}`} 
+            className="flex items-center hover:opacity-80 transition-opacity"
+            onClick={(e) => e.stopPropagation()} // Prevent triggering post modal when clicking on username
+          >
+            <img 
+              src={getAvatarUrl(post.username)}
+              alt={`${post.username}'s avatar`}
+              className="w-8 h-8 rounded-full mr-2"
+              onError={(e) => {
+                // Fallback in case the avatar API fails
+                e.target.onerror = null;
+                e.target.src = "https://avatar.iran.liara.run/public/17";
+              }}
+            />
+            <span className="text-gray-500 text-sm hover:text-blue-600"><a href={`http://localhost:3000/user/${post.username}`}>@{post.username}</a></span>
+          </Link>
         </div>
         
         {/* Footer with location and category */}

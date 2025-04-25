@@ -4,6 +4,36 @@ const SkeletonLoader = ({ type = 'card', count = 1 }) => {
   // Function to render different skeleton types
   const renderSkeleton = () => {
     switch(type) {
+      case 'profile':
+        return (
+          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+              {/* Profile picture placeholder */}
+              <div className="w-32 h-32 rounded-full bg-gray-200 animate-pulse"></div>
+              
+              {/* User info placeholders */}
+              <div className="flex-grow text-center md:text-left">
+                <div className="w-48 h-8 bg-gray-200 animate-pulse mb-4 mx-auto md:mx-0"></div>
+                
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center justify-center md:justify-start">
+                    <div className="w-5 h-5 bg-gray-200 animate-pulse mr-2"></div>
+                    <div className="w-40 h-4 bg-gray-200 animate-pulse"></div>
+                  </div>
+                  <div className="flex items-center justify-center md:justify-start">
+                    <div className="w-5 h-5 bg-gray-200 animate-pulse mr-2"></div>
+                    <div className="w-32 h-4 bg-gray-200 animate-pulse"></div>
+                  </div>
+                  <div className="flex items-center justify-center md:justify-start">
+                    <div className="w-5 h-5 bg-gray-200 animate-pulse mr-2"></div>
+                    <div className="w-56 h-4 bg-gray-200 animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      
       case 'feature':
         return (
           <div className="min-w-[300px] sm:min-w-[340px] flex-shrink-0">

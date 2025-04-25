@@ -5,6 +5,11 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import CreatePost from './pages/CreatePost';
 import PostFormModal from './components/PostFormModal';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
+import User from './pages/User/User';
+import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './context/AuthContext';
 import './App.css';
 
 function App() {
@@ -24,31 +29,52 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className="flex flex-col min-h-screen font-sans">
-        <Navbar 
-          onCategorySelect={setSelectedCategory} 
-          selectedCity={selectedCity}
-          onCityChange={setSelectedCity}
-          onPostClick={() => setIsPostModalOpen(true)}
-        />
-        <main className="flex-grow pt-6">
+    <AuthProvider>
+      <Router>
+        <div className="flex flex-col min-h-screen font-sans">
           <Routes>
-            <Route path="/" element={<Home selectedCategory={selectedCategory} selectedCity={selectedCity} postCreated={postCreated} />} />
-            <Route path="/create-post" element={<CreatePost defaultCity={selectedCity} />} />
-            {/* Additional routes can be added here */}
+            {/* Admin routes */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route 
+              path="/admin" 
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            
+            {/* Public routes with shared layout */}
+            <Route path="*" element={
+              <>
+                <Navbar 
+                  onCategorySelect={setSelectedCategory} 
+                  selectedCity={selectedCity}
+                  onCityChange={setSelectedCity}
+                  onPostClick={() => setIsPostModalOpen(true)}
+                />
+                <main className="flex-grow pt-6">
+                  <Routes>
+                    <Route path="/" element={<Home selectedCategory={selectedCategory} selectedCity={selectedCity} postCreated={postCreated} />} />
+                    <Route path="/create-post" element={<CreatePost defaultCity={selectedCity} />} />
+                    <Route path="/user/:username" element={<User />} />
+                    {/* Additional routes can be added here */}
+                  </Routes>
+                </main>
+                <Footer />
+              </>
+            } />
           </Routes>
-        </main>
-        <Footer />
-        
-        {/* Post creation modal */}
-        <PostFormModal 
-          isOpen={isPostModalOpen} 
-          onClose={handleModalClose} 
-          defaultCity={selectedCity} 
-        />
-      </div>
-    </Router>
+          
+          {/* Post creation modal */}
+          <PostFormModal 
+            isOpen={isPostModalOpen} 
+            onClose={handleModalClose} 
+            defaultCity={selectedCity} 
+          />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
