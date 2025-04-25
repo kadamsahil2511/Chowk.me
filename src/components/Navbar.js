@@ -214,7 +214,6 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
                       key={category.name}
                       ref={moreDropdownRef}
                       className="relative"
-                      style={{ position: 'relative' }}
                     >
                       <div 
                         onMouseEnter={() => setShowMoreDropdown(true)}
@@ -234,15 +233,17 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
                       
                       {showMoreDropdown && (
                         <div 
-                          className="fixed z-[999] bg-white rounded-lg shadow-lg border border-gray-100 py-2"
-                          onMouseLeave={() => setShowMoreDropdown(false)}
-                          style={{ 
-                            top: moreDropdownRef.current ? moreDropdownRef.current.getBoundingClientRect().bottom + window.scrollY + 5 : 'auto',
-                            left: moreDropdownRef.current ? moreDropdownRef.current.getBoundingClientRect().left - 100 : 'auto',
+                          id="more-dropdown-menu"
+                          className="z-[9999] bg-white rounded-lg shadow-xl border border-gray-100 py-2"
+                          style={{
+                            position: 'fixed',
+                            top: `${moreDropdownRef.current ? moreDropdownRef.current.getBoundingClientRect().bottom + 4 : 100}px`,
+                            left: `${moreDropdownRef.current ? moreDropdownRef.current.getBoundingClientRect().left - 100 : 0}px`,
                             width: '230px',
                             maxHeight: '380px',
-                            overflowY: 'auto'
+                            overflowY: 'auto',
                           }}
+                          onMouseLeave={() => setShowMoreDropdown(false)}
                         >
                           {/* Category sections */}
                           <div className="px-4 py-1 text-xs text-gray-500 font-medium uppercase">General Categories</div>

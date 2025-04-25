@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, MapPin, Clock, User } from 'lucide-react';
+import { X, MapPin, Clock, User, Link as LinkIcon } from 'lucide-react';
 
 const PostDetailsModal = ({ isOpen, onClose, post }) => {
   // Effect to control body scroll when modal opens/closes
@@ -114,6 +114,21 @@ const PostDetailsModal = ({ isOpen, onClose, post }) => {
             <div className="prose max-w-none">
               <p className="whitespace-pre-line">{post.description}</p>
             </div>
+            
+            {/* Link Display - New Section */}
+            {post.link && (
+              <div className="mt-6 pt-4 border-t border-gray-100">
+                <a 
+                  href={post.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-blue-600"
+                >
+                  <LinkIcon size={16} className="mr-2" />
+                  <span className="underline">{post.link}</span>
+                </a>
+              </div>
+            )}
             
             {/* Post Actions */}
             <div className="mt-8 flex justify-end">

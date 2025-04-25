@@ -9,7 +9,8 @@ const PostFormModal = ({ isOpen, onClose, defaultCity }) => {
     category: '',
     image: null,
     imagePreview: null,
-    location: defaultCity || 'Dehradun' // Default location from props
+    location: defaultCity || 'Dehradun', // Default location from props
+    link: '' // Added link field
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -76,7 +77,8 @@ const PostFormModal = ({ isOpen, onClose, defaultCity }) => {
       category: '',
       image: null,
       imagePreview: null,
-      location: defaultCity || 'Dehradun'
+      location: defaultCity || 'Dehradun',
+      link: '' // Reset link field
     });
     setError('');
     setSuccess(false);
@@ -107,7 +109,8 @@ const PostFormModal = ({ isOpen, onClose, defaultCity }) => {
         location: formData.location,
         image: formData.imagePreview || getPlaceholderImage(formData.category, { width: 400, height: 250 }),
         featured: false,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        link: formData.link // Added link to the post object
       };
       
       // Simulate API call delay
@@ -254,6 +257,22 @@ const PostFormModal = ({ isOpen, onClose, defaultCity }) => {
                     </option>
                   ))}
                 </select>
+              </div>
+              
+              {/* Link - new field */}
+              <div className="mb-5">
+                <label htmlFor="link" className="block text-gray-700 font-medium mb-2">
+                  Link (Optional)
+                </label>
+                <input
+                  type="url"
+                  id="link"
+                  name="link"
+                  value={formData.link}
+                  onChange={handleInputChange}
+                  placeholder="https://example.com"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 transition"
+                />
               </div>
               
               {/* Image Upload */}

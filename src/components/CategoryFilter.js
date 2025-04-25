@@ -92,7 +92,7 @@ const CategoryFilter = ({ categories, activeCategory, setActiveCategory }) => {
               {category}
             </button>
           ) : (
-            <div className="relative" ref={moreMenuRef} style={{ position: 'relative' }} key={category}>
+            <div className="relative" ref={moreMenuRef} key={category}>
               <button
                 onMouseEnter={() => setShowMore(true)}
                 onClick={() => setShowMore(!showMore)}
@@ -108,14 +108,16 @@ const CategoryFilter = ({ categories, activeCategory, setActiveCategory }) => {
               
               {showMore && (
                 <div 
-                  className="fixed z-[999] bg-white rounded-lg shadow-lg border border-gray-100 py-2"
+                  className="absolute z-[999] bg-white rounded-lg shadow-lg border border-gray-100 py-2"
                   onMouseLeave={() => setShowMore(false)}
                   style={{ 
-                    top: moreMenuRef.current ? moreMenuRef.current.getBoundingClientRect().bottom + window.scrollY + 5 : 'auto',
-                    left: moreMenuRef.current ? moreMenuRef.current.getBoundingClientRect().left - 100 : 'auto',
+                    top: '100%',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
                     width: '230px',
                     maxHeight: '380px',
-                    overflowY: 'auto'
+                    overflowY: 'auto',
+                    marginTop: '0.5rem'
                   }}
                 >
                   {/* General Categories */}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, ArrowUpRight } from 'phosphor-react';
+import { MapPin, ArrowUpRight, Link } from 'phosphor-react';
 import getPlaceholderImage from '../utils/imagePlaceholders';
 
 const PostCard = ({ post, onOpenModal }) => {
@@ -71,6 +71,14 @@ const PostCard = ({ post, onOpenModal }) => {
         {post.featured && (
           <div className="absolute top-3 right-3 bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full">
             Featured
+          </div>
+        )}
+        
+        {/* Link indicator badge */}
+        {post.link && (
+          <div className="absolute top-3 left-3 bg-blue-500 bg-opacity-70 text-white text-xs px-3 py-1 rounded-full flex items-center">
+            <Link size={12} weight="bold" className="mr-1" />
+            <span>Link</span>
           </div>
         )}
       </div>

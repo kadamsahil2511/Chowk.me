@@ -184,12 +184,12 @@ const Home = ({ selectedCategory, selectedCity, postCreated }) => {
                 {selectedCity ? `On the market in ${selectedCity}` : 'On the market'}
               </h2>
               
-              {/* Category filter - passing the custom handler */}
+              {/* Category filter - passing the custom handler
               <CategoryFilter 
                 categories={categories} 
                 activeCategory={activeCategory} 
                 setActiveCategory={handleCategorySelect} 
-              />
+              /> */}
               
               {/* Posts Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
