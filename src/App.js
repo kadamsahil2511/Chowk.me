@@ -57,7 +57,7 @@ function App() {
                   <Routes>
                     <Route path="/" element={<Home selectedCategory={selectedCategory} selectedCity={selectedCity} postCreated={postCreated} />} />
                     <Route path="/create-post" element={<CreatePost defaultCity={selectedCity} />} />
-                    <Route path="/user/:username" element={<User />} />
+                    <Route path="/:username" element={<User />} />
                     {/* Additional routes can be added here */}
                   </Routes>
                 </main>

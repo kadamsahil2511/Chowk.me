@@ -168,12 +168,12 @@ const User = () => {
   const userInterests = generatePlaceholderSections();
 
   return (
-    <div className="container mx-auto px-4 py-12 bg-gray-50">
+    <div className="container mx-auto px-4 py-12 ">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left column - User Profile - Enhanced sticky positioning */}
+        <div className="flex flex-col lg:flex-row gap-8 relative">
+          {/* Left column - User Profile - Fixed position */}
           <div className="w-full lg:w-1/3">
-            <div className="lg:sticky lg:top-20" style={{ position: 'sticky', top: '80px' }}>
+            <div className="lg:fixed lg:max-w-[calc(25%-2rem)]" style={{ width: 'inherit', maxWidth: '350px' }}>
               <div className="bg-white rounded-xl shadow-sm p-6">
                 <div className="flex flex-col items-center text-center mb-6">
                   {/* Profile Picture */}

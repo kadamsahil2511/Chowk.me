@@ -99,7 +99,7 @@ const PostDetailsModal = ({ isOpen, onClose, post }) => {
               {post.username && (
                 <div className="flex items-center">
                   <User size={16} className="mr-1" />
-                <span><a href={`/user/${post.username}`}>{post.username}</a></span>
+                <span><a href={`/${post.username}`}>{post.username}</a></span>
                 </div>
               )}
               

@@ -108,7 +108,7 @@ const PostCard = ({ post, onOpenModal }) => {
         {/* User with avatar from avatar-placeholder API */}
         <div className="flex items-center mb-4">
           <Link 
-            to={`/user/${post.username}`} 
+            to={`/${post.username}`} 
             className="flex items-center hover:opacity-80 transition-opacity"
             onClick={(e) => e.stopPropagation()} // Prevent triggering post modal when clicking on username
           >
