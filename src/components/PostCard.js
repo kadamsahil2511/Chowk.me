@@ -122,7 +122,7 @@ const PostCard = ({ post, onOpenModal }) => {
                 e.target.src = "https://avatar.iran.liara.run/public/17";
               }}
             />
-            <span className="text-gray-500 text-sm hover:text-blue-600"><a href={`http://localhost:3000/user/${post.username}`}>@{post.username}</a></span>
+            <span className="text-gray-500 text-sm hover:text-blue-600"><a href={`/user/${post.username}`}>@{post.username}</a></span>
           </Link>
         </div>
         
