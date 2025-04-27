@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Upload, Info, Loader } from 'lucide-react';
 import SkeletonLoader from '../components/SkeletonLoader';
+import { useAuth } from '../context/AuthContext';
 
 const CreatePost = () => {
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -78,7 +80,7 @@ const CreatePost = () => {
         title: formData.title,
         description: formData.description,
         category: formData.category,
-        username: 'current_user', // In a real app, this would come from authentication
+        username: currentUser?.username || 'anonymous', // Use the username from current user
         location: formData.location,
         image: formData.imagePreview || `https://picsum.photos/seed/${formData.category}/400/250`,
         featured: false,

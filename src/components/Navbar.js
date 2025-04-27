@@ -1,16 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MagnifyingGlass, CaretDown, MapPin, List, X } from 'phosphor-react';
+import { MagnifyingGlass, CaretDown, MapPin, List, X, User as UserIcon } from 'phosphor-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory = 'All', onPostClick }) => {
   const navigate = useNavigate();
+  const { currentUser, logout } = useAuth();
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [showMoreDropdown, setShowMoreDropdown] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
   const [localActiveCategory, setLocalActiveCategory] = useState(activeCategory);
   const moreDropdownRef = useRef(null);
+  const userMenuRef = useRef(null);
   
   const cities = ['Dehradun', 'Delhi', 'Mumbai', 'Bangalore', 'Pune', 'Hyderabad', 'Chennai', 'Kolkata', 'Jaipur'];
   const categories = [
@@ -58,13 +62,16 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
       if (moreDropdownRef.current && !moreDropdownRef.current.contains(event.target)) {
         setShowMoreDropdown(false);
       }
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setShowUserMenu(false);
+      }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [moreDropdownRef]);
+  }, []);
   
   const handleCategoryClick = (category) => {
     setLocalActiveCategory(category);
@@ -88,12 +95,27 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
 
   // Updated to use onPostClick prop instead of navigating
   const handlePostClick = () => {
+    if (!currentUser) {
+      navigate('/login', { state: { redirect: '/create-post' } });
+      return;
+    }
+    
     if (onPostClick) {
       onPostClick();
     } else {
       navigate('/create-post'); // Fallback to navigation if prop not provided
     }
     setMobileMenuOpen(false);
+  };
+  
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setShowUserMenu(false);
+      navigate('/');
+    } catch (error) {
+      console.error("Failed to logout:", error);
+    }
   };
   
   return (
@@ -125,8 +147,9 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
               </div>
             </form>
             
-            {/* City Selector and Post Button */}
+            {/* City Selector, Auth Menu, and Post Button */}
             <div className="flex items-center gap-4">
+              {/* City Selector */}
               <div className="relative hidden sm:block">
                 <div 
                   className="flex items-center gap-1 cursor-pointer py-2 text-sm"
@@ -158,6 +181,71 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
                 )}
               </div>
               
+              {/* Authentication UI */}
+              {currentUser ? (
+                <div className="relative" ref={userMenuRef}>
+                  <button
+                    onClick={() => setShowUserMenu(!showUserMenu)}
+                    className="flex items-center gap-2 text-gray-700 hover:text-gray-900"
+                  >
+                    <div className="h-8 w-8 rounded-full overflow-hidden bg-gray-100">
+                      <img 
+                        src={currentUser.profilePic || `https://avatar.iran.liara.run/public/17?username=${currentUser.username}`}
+                        alt="User avatar"
+                        className="h-full w-full object-cover"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "https://avatar.iran.liara.run/public/17";
+                        }}
+                      />
+                    </div>
+                    <span className="hidden sm:block text-sm">{currentUser.name || currentUser.username}</span>
+                    <CaretDown size={14} weight="bold" className="hidden sm:block text-gray-500" />
+                  </button>
+                  
+                  {showUserMenu && (
+                    <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-md shadow-lg z-50 border border-gray-100">
+                      <div className="p-3 border-b border-gray-100">
+                        <p className="font-medium text-sm">@{currentUser.username}</p>
+                        <p className="text-gray-500 text-sm truncate">{currentUser.email}</p>
+                      </div>
+                      <div className="py-1">
+                        <Link 
+                          to={`/${currentUser.username}`}
+                          onClick={() => setShowUserMenu(false)}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Your Profile
+                        </Link>
+                        <Link 
+                          to="/profile-settings"
+                          onClick={() => setShowUserMenu(false)}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Settings
+                        </Link>
+                        <button
+                          onClick={handleLogout}
+                          className="block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                        >
+                          Sign out
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="hidden sm:flex items-center gap-3">
+                  <Link to="/login" className="text-gray-700 hover:text-black text-sm">
+                    Sign in
+                  </Link>
+                  <Link to="/signup" className="bg-blue-600 text-white px-3 py-1.5 rounded-md text-sm font-medium hover:bg-blue-700 transition">
+                    Sign up
+                  </Link>
+                </div>
+              )}
+              
+              {/* Post Button */}
               <button 
                 onClick={handlePostClick}
                 className="bg-[#E1B845] text-gray-900 font-medium px-5 py-1.5 rounded-full hover:bg-yellow-400 transition-colors duration-200 text-sm"
@@ -309,6 +397,31 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
                   )
                 ))}
               </div>
+            </div>
+            
+            {/* Mobile Auth Links */}
+            <div className="sm:hidden">
+              {!currentUser ? (
+                <Link to="/login" className="flex items-center gap-1 text-gray-600 py-2.5">
+                  <UserIcon size={16} />
+                  <span className="text-sm">Sign in</span>
+                </Link>
+              ) : (
+                <Link to={`/${currentUser.username}`} className="flex items-center gap-1 text-gray-600 py-2.5">
+                  <div className="w-5 h-5 rounded-full overflow-hidden bg-gray-100">
+                    <img 
+                      src={currentUser.profilePic || `https://avatar.iran.liara.run/public/17?username=${currentUser.username}`}
+                      alt="User"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://avatar.iran.liara.run/public/17";
+                      }}
+                    />
+                  </div>
+                  <span className="text-sm">Profile</span>
+                </Link>
+              )}
             </div>
           </div>
         </div>

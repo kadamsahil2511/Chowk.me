@@ -8,6 +8,9 @@ import PostFormModal from './components/PostFormModal';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import User from './pages/User/User';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import ProfileSettings from './pages/ProfileSettings';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 import './App.css';
@@ -44,6 +47,20 @@ function App() {
               } 
             />
             
+            {/* Authentication routes - these don't show the navbar */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            
+            {/* Protected routes */}
+            <Route 
+              path="/profile-settings" 
+              element={
+                <ProtectedRoute>
+                  <ProfileSettings />
+                </ProtectedRoute>
+              } 
+            />
+            
             {/* Public routes with shared layout */}
             <Route path="*" element={
               <>
@@ -52,6 +69,7 @@ function App() {
                   selectedCity={selectedCity}
                   onCityChange={setSelectedCity}
                   onPostClick={() => setIsPostModalOpen(true)}
+                  activeCategory={selectedCategory}
                 />
                 <main className="flex-grow pt-6">
                   <Routes>
