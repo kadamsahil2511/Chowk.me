@@ -192,12 +192,17 @@ const Home = ({ selectedCategory, selectedCity, postCreated }) => {
               /> */}
               
               {/* Posts Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6 auto-rows-fr">
                 {filteredPosts.length > 0 ? (
                   filteredPosts.map(post => (
                     <PostCard 
                       key={post.id} 
-                      post={post} 
+                      post={{
+                        ...post,
+                        description: post.description && post.description.trim().length > 0
+                          ? post.description
+                          : `This is a post about ${post.title}. Find out more details by clicking on the card.`
+                      }}
                       isHighlighted={activeCategory !== 'All' && post.category === activeCategory}
                       onOpenModal={handlePostClick}
                     />

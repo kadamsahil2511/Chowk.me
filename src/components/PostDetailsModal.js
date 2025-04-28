@@ -122,7 +122,7 @@ const PostDetailsModal = ({ isOpen, onClose, post }) => {
                   href={post.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-blue-600"
+                  className="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-black"
                 >
                   <LinkIcon size={16} className="mr-2" />
                   <span className="underline">{post.link}</span>
