@@ -1,0 +1,111 @@
+/* Mabry Pro Font */
+
+@font-face {
+  font-family: 'Mabry Pro';
+  src: url('../public/fonts/MabryPro-Light.woff2') format('woff2'),
+       url('../public/fonts/MabryPro-Light.woff') format('woff'),
+       url('../public/fonts/MabryPro-Light.eot') format('embedded-opentype'),
+       url('../public/fonts/MabryPro-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mabry Pro';
+  src: url('../public/fonts/MabryPro-LightItalic.woff2') format('woff2'),
+       url('../public/fonts/MabryPro-LightItalic.woff') format('woff'),
+       url('../public/fonts/MabryPro-LightItalic.eot') format('embedded-opentype'),
+       url('../public/fonts/MabryPro-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mabry Pro';
+  src: url('../public/fonts/MabryPro-Regular.woff2') format('woff2'),
+       url('../public/fonts/MabryPro-Regular.woff') format('woff'),
+       url('../public/fonts/MabryPro-Regular.eot') format('embedded-opentype'),
+       url('../public/fonts/MabryPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mabry Pro';
+  src: url('../public/fonts/MabryPro-Italic.woff2') format('woff2'),
+       url('../public/fonts/MabryPro-Italic.woff') format('woff'),
+       url('../public/fonts/MabryPro-Italic.eot') format('embedded-opentype'),
+       url('../public/fonts/MabryPro-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mabry Pro';
+  src: url('../public/fonts/MabryPro-Medium.woff2') format('woff2'),
+       url('../public/fonts/MabryPro-Medium.woff') format('woff'),
+       url('../public/fonts/MabryPro-Medium.eot') format('embedded-opentype'),
+       url('../public/fonts/MabryPro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mabry Pro';
+  src: url('../public/fonts/MabryPro-MediumItalic.woff2') format('woff2'),
+       url('../public/fonts/MabryPro-MediumItalic.woff') format('woff'),
+       url('../public/fonts/MabryPro-MediumItalic.eot') format('embedded-opentype'),
+       url('../public/fonts/MabryPro-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mabry Pro';
+  src: url('../public/fonts/MabryPro-Bold.woff2') format('woff2'),
+       url('../public/fonts/MabryPro-Bold.woff') format('woff'),
+       url('../public/fonts/MabryPro-Bold.eot') format('embedded-opentype'),
+       url('../public/fonts/MabryPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mabry Pro';
+  src: url('../public/fonts/MabryPro-BoldItalic.woff2') format('woff2'),
+       url('../public/fonts/MabryPro-BoldItalic.woff') format('woff'),
+       url('../public/fonts/MabryPro-BoldItalic.eot') format('embedded-opentype'),
+       url('../public/fonts/MabryPro-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mabry Pro';
+  src: url('../public/fonts/MabryPro-Black.woff2') format('woff2'),
+       url('../public/fonts/MabryPro-Black.woff') format('woff'),
+       url('../public/fonts/MabryPro-Black.eot') format('embedded-opentype'),
+       url('../public/fonts/MabryPro-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mabry Pro';
+  src: url('../public/fonts/MabryPro-BlackItalic.woff2') format('woff2'),
+       url('../public/fonts/MabryPro-BlackItalic.woff') format('woff'),
+       url('../public/fonts/MabryPro-BlackItalic.eot') format('embedded-opentype'),
+       url('../public/fonts/MabryPro-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}

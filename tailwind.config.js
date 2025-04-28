@@ -18,9 +18,10 @@ module.exports = {
         'text-secondary': '#666666',
       },
       fontFamily: {
-        'sans': ['Inter', 'Poppins', 'system-ui', 'sans-serif'],
+        'sans': ['Mabry Pro', 'Inter', 'system-ui', 'sans-serif'],
         'serif': ['Playfair Display', 'Georgia', 'serif'],
-        'playfair': ['Playfair Display', 'serif']
+        'playfair': ['Playfair Display', 'serif'],
+        'mabry': ['Mabry Pro', 'sans-serif']
       },
       boxShadow: {
         'soft': '0 2px 6px rgba(0,0,0,0.05)',
