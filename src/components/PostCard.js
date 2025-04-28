@@ -3,7 +3,7 @@ import { MapPin, ArrowUpRight, Link as LinkIcon } from 'phosphor-react';
 import { Link } from 'react-router-dom';
 import getPlaceholderImage from '../utils/imagePlaceholders';
 
-const PostCard = ({ post, onOpenModal }) => {
+const PostCard = ({ post, onOpenModal, variant = 'portrait' }) => {
   const [imageDimensions] = useState({ width: 400, height: 300 });
 
   // Get avatar URL using specific IDs from avatar.iran.liara.run
@@ -56,40 +56,56 @@ const PostCard = ({ post, onOpenModal }) => {
     }
   };
 
+  const isLandscape = variant === 'landscape';
+
   return (
     <div 
-      className="bg-white overflow-hidden transition-all duration-300 hover:shadow-[5px_5px_0px_0px_rgba(255,20,147,0.3)] border border-gray-100 cursor-pointer"
+      className={`
+        bg-white border border-black overflow-hidden cursor-pointer 
+        transition-all duration-300 rounded-xl shadow-none
+        ${isLandscape ? 'flex flex-row h-48' : 'flex flex-col'}
+      `}
       onClick={handlePostClick}
+      style={{ minHeight: isLandscape ? '12rem' : undefined }}
     >
       {/* Image Part */}
-      <div className="relative">
+      <div 
+        className={`
+          ${isLandscape ? 'w-1/2 h-full' : 'w-full h-64'} 
+          relative
+        `} 
+        style={{ 
+          aspectRatio: '1 / 1', 
+          minWidth: isLandscape ? '12rem' : undefined 
+        }}
+      >
         <img 
           src={getImageUrl()}
           alt={post.title}
-          className="w-full h-64 object-cover"
+          className={`
+            object-cover w-full h-full 
+            ${isLandscape ? 'rounded-l-xl' : 'rounded-t-xl'}
+          `}
+          style={{ aspectRatio: '1 / 1' }}
         />
-        
-        {post.featured && (
-          <div className="absolute top-3 right-3 bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full">
-            Featured
-          </div>
-        )}
-        
         {/* Link indicator badge */}
-        {post.link && (
-          <div className="absolute top-3 left-3 bg-blue-500 bg-opacity-70 text-white text-xs px-3 py-1 rounded-full flex items-center">
+        {post.link && !isLandscape && (
+          <div className="absolute top-3 left-3 bg-black bg-opacity-70 text-white text-xs px-3 py-1 rounded-full flex items-center">
             <LinkIcon size={12} weight="bold" className="mr-1" />
             <span>Link</span>
           </div>
         )}
       </div>
-      
+
       {/* Content Part */}
-      <div className="p-4">
+      <div className={`p-4 flex flex-col justify-between ${isLandscape ? 'w-1/2' : ''}`}>
         {/* Title with arrow link */}
         <div className="group">
           <div className="inline-block">
-            <h3 className="font-bold text-xl mb-2 pr-6 relative">
+            <h3 className={`
+              font-bold mb-2 pr-6 relative text-black
+              ${isLandscape ? 'text-lg' : 'text-xl'}
+            `}>
               {post.title}
               <ArrowUpRight 
                 size={18}
@@ -99,35 +115,39 @@ const PostCard = ({ post, onOpenModal }) => {
             </h3>
           </div>
         </div>
-        
+
         {/* Description */}
-        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+        <p className={`
+          text-gray-600 text-sm mb-4
+          ${isLandscape ? 'line-clamp-2' : 'line-clamp-3'}
+        `}>
           {post.description}
         </p>
-        
-        {/* User with avatar from avatar-placeholder API */}
+
+        {/* User with avatar */}
         <div className="flex items-center mb-4">
           <Link 
             to={`/${post.username}`} 
             className="flex items-center hover:opacity-80 transition-opacity"
-            onClick={(e) => e.stopPropagation()} // Prevent triggering post modal when clicking on username
+            onClick={(e) => e.stopPropagation()}
           >
             <img 
               src={getAvatarUrl(post.username)}
               alt={`${post.username}'s avatar`}
               className="w-8 h-8 rounded-full mr-2"
               onError={(e) => {
-                // Fallback in case the avatar API fails
                 e.target.onerror = null;
                 e.target.src = "https://avatar.iran.liara.run/public/17";
               }}
             />
-            <span className="text-gray-500 text-sm hover:text-blue-600"><a href={`/user/${post.username}`}>@{post.username}</a></span>
+            <span className="text-gray-500 text-sm hover:text-black">
+              @{post.username}
+            </span>
           </Link>
         </div>
-        
+
         {/* Footer with location and category */}
-        <div className="flex items-center justify-between text-sm pt-2 border-t border-gray-100">
+        <div className="flex items-center justify-between text-sm pt-2 border-t border-gray-200">
           <div className="flex items-center">
             <MapPin 
               size={14} 
@@ -136,22 +156,11 @@ const PostCard = ({ post, onOpenModal }) => {
             />
             <span className="text-gray-500">{post.location}</span>
           </div>
-          
-          <div className={`px-2.5 py-1 rounded-full flex items-center ${
-            post.category === 'Business' ? 'bg-yellow-100' : 
-            post.category === 'Food' ? 'bg-green-100' :
-            post.category === 'Travel' ? 'bg-blue-100' : 
-            post.category === 'Events' ? 'bg-purple-100' :
-            post.category === 'Education' ? 'bg-indigo-100' :
-            post.category === 'Sale' ? 'bg-pink-100' :
-            post.category === 'Lost' ? 'bg-red-100' :
-            post.category === 'Freelance' ? 'bg-orange-100' :
-            post.category === 'Housing' ? 'bg-teal-100' : 'bg-gray-100'
-          }`}>
+          <div className="px-2.5 py-1 rounded-full flex items-center bg-gray-100">
             {getCategoryIcon(post.category) && (
               <span className="mr-1">{getCategoryIcon(post.category)}</span>
             )}
-            <span className="font-medium text-xs">{post.category}</span>
+            <span className="font-medium text-xs text-black">{post.category}</span>
           </div>
         </div>
       </div>

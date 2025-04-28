@@ -53,8 +53,8 @@ const FeatureSlider = ({ featuredPosts, loading = false, onOpenModal }) => {
             </>
           ) : (
             featuredPosts.map(post => (
-              <div key={post.id} className="min-w-[300px] sm:min-w-[340px] flex-shrink-0">
-                <PostCard post={post} isFeatured={true} onOpenModal={onOpenModal} />
+              <div key={post.id} className="min-w-[300px] sm:min-w-[340px] max-w-[400px] flex-shrink-0">
+                <PostCard post={post} isFeatured={false} onOpenModal={onOpenModal} />
               </div>
             ))
           )}
