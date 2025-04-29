@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import getPlaceholderImage from '../utils/imagePlaceholders';
 
 const PostCard = ({ post, onOpenModal, variant = 'portrait' }) => {
-  const [imageDimensions] = useState({ width: 400, height: 300 });
+  const [imageDimensions] = useState({ width: 400, height: variant === 'landscape' ? 192 : 300 });
 
   // Get avatar URL using specific IDs from avatar.iran.liara.run
   const getAvatarUrl = (username) => {
@@ -63,30 +63,24 @@ const PostCard = ({ post, onOpenModal, variant = 'portrait' }) => {
       className={`
         bg-white border border-black overflow-hidden cursor-pointer 
         transition-all duration-300 rounded-xl shadow-none
-        ${isLandscape ? 'flex flex-row h-48' : 'flex flex-col'}
+        ${isLandscape ? 'flex h-48' : 'flex flex-col'}
       `}
       onClick={handlePostClick}
-      style={{ minHeight: isLandscape ? '12rem' : undefined }}
     >
       {/* Image Part */}
       <div 
         className={`
-          ${isLandscape ? 'w-1/2 h-full' : 'w-full h-64'} 
-          relative
-        `} 
-        style={{ 
-          aspectRatio: '1 / 1', 
-          minWidth: isLandscape ? '12rem' : undefined 
-        }}
+          relative overflow-hidden
+          ${isLandscape ? 'w-[192px] h-full flex-shrink-0' : 'w-full h-64'} 
+        `}
       >
         <img 
           src={getImageUrl()}
           alt={post.title}
           className={`
-            object-cover w-full h-full 
+            w-full h-full object-cover
             ${isLandscape ? 'rounded-l-xl' : 'rounded-t-xl'}
           `}
-          style={{ aspectRatio: '1 / 1' }}
         />
         {/* Link indicator badge */}
         {post.link && !isLandscape && (
@@ -98,12 +92,15 @@ const PostCard = ({ post, onOpenModal, variant = 'portrait' }) => {
       </div>
 
       {/* Content Part */}
-      <div className={`p-4 flex flex-col justify-between ${isLandscape ? 'w-1/2' : ''}`}>
+      <div className={`
+        p-4 flex flex-col justify-between
+        ${isLandscape ? 'flex-1 w-[208px]' : ''}
+      `}>
         {/* Title with arrow link */}
         <div className="group">
           <div className="inline-block">
             <h3 className={`
-              font-bold mb-2 pr-6 relative text-black
+              font-bold mb-2 pr-6 relative text-black line-clamp-2
               ${isLandscape ? 'text-lg' : 'text-xl'}
             `}>
               {post.title}
@@ -125,7 +122,7 @@ const PostCard = ({ post, onOpenModal, variant = 'portrait' }) => {
         </p>
 
         {/* User with avatar */}
-        <div className="flex items-center mb-4">
+        <div className="flex items-center mb-3">
           <Link 
             to={`/${post.username}`} 
             className="flex items-center hover:opacity-80 transition-opacity"
@@ -134,7 +131,7 @@ const PostCard = ({ post, onOpenModal, variant = 'portrait' }) => {
             <img 
               src={getAvatarUrl(post.username)}
               alt={`${post.username}'s avatar`}
-              className="w-8 h-8 rounded-full mr-2"
+              className="w-7 h-7 rounded-full mr-2"
               onError={(e) => {
                 e.target.onerror = null;
                 e.target.src = "https://avatar.iran.liara.run/public/17";
