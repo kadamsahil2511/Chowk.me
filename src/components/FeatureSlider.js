@@ -9,7 +9,7 @@ const FeatureSlider = ({ featuredPosts, loading = false, onOpenModal }) => {
   const scroll = (direction) => {
     if (sliderRef.current) {
       const { current } = sliderRef;
-      const scrollAmount = direction === 'left' ? -320 : 320;
+      const scrollAmount = direction === 'left' ? -420 : 420;
       current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
@@ -42,19 +42,18 @@ const FeatureSlider = ({ featuredPosts, loading = false, onOpenModal }) => {
         
         <div 
           ref={sliderRef}
-          className="flex gap-5 overflow-x-auto pb-4 hide-scrollbar"
+          className="flex gap-5 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {loading ? (
             <>
               <SkeletonLoader type="feature" />
               <SkeletonLoader type="feature" />
-              <SkeletonLoader type="feature" />
             </>
           ) : (
             featuredPosts.map(post => (
-              <div key={post.id} className="min-w-[300px] sm:min-w-[340px] max-w-[400px] flex-shrink-0">
-                <PostCard post={post} isFeatured={false} onOpenModal={onOpenModal} />
+              <div key={post.id} className="min-w-[400px] max-w-[400px] flex-shrink-0 snap-start">
+                <PostCard post={post} variant="landscape" onOpenModal={onOpenModal} />
               </div>
             ))
           )}
