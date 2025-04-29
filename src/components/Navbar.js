@@ -149,38 +149,6 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
             
             {/* City Selector, Auth Menu, and Post Button */}
             <div className="flex items-center gap-4">
-              {/* City Selector */}
-              <div className="relative hidden sm:block">
-                <div 
-                  className="flex items-center gap-1 cursor-pointer py-2 text-sm"
-                  onClick={() => setShowCityDropdown(!showCityDropdown)}
-                >
-                  <MapPin size={16} weight="fill" className="text-gray-600" />
-                  <span className="font-medium text-gray-800">{selectedCity}</span>
-                  <CaretDown 
-                    size={14} 
-                    weight="bold"
-                    className={`transition-transform duration-200 text-gray-600 ${showCityDropdown ? 'rotate-180' : ''}`} 
-                  />
-                </div>
-                
-                {showCityDropdown && (
-                  <div className="absolute top-full right-0 mt-1 bg-white shadow-lg rounded-lg w-48 z-50 max-h-60 overflow-y-auto border border-gray-100">
-                    {cities.map((cityName) => (
-                      <div 
-                        key={cityName}
-                        className={`px-3 py-2 hover:bg-gray-50 cursor-pointer text-sm ${
-                          selectedCity === cityName ? 'font-medium bg-gray-50' : ''
-                        }`}
-                        onClick={() => handleCitySelect(cityName)}
-                      >
-                        {cityName}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-              
               {/* Post Button */}
               <button 
                 onClick={handlePostClick}
@@ -196,24 +164,56 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
       {/* Category Navigation */}
       <div className="bg-white border-b border-[#CBD5E1] px-4 sticky top-[57px] z-40 shadow-sm">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between">
-            {/* Mobile City Selector */}
-            <div className="sm:hidden relative">
+          <div className="flex items-center">
+            {/* Desktop City Selector */}
+            <div className="hidden sm:block mr-6">
               <div 
-                className="flex items-center gap-1 cursor-pointer py-3 text-sm"
+                className="flex items-center gap-1 cursor-pointer bg-black text-white px-4 py-1 rounded-full text-sm font-medium hover:bg-gray-900 transition"
                 onClick={() => setShowCityDropdown(!showCityDropdown)}
               >
-                <MapPin size={16} weight="fill" className="text-gray-600" />
-                <span className="font-medium text-gray-800">{selectedCity}</span>
+                <MapPin size={14} weight="fill" className="text-white" />
+                <span>{selectedCity}</span>
                 <CaretDown 
-                  size={14} 
+                  size={12} 
                   weight="bold"
-                  className={`transition-transform duration-200 text-gray-600 ${showCityDropdown ? 'rotate-180' : ''}`} 
+                  className={`transition-transform duration-200 text-white ${showCityDropdown ? 'rotate-180' : ''}`} 
                 />
               </div>
               
               {showCityDropdown && (
-                <div className="absolute top-full left-0 mt-1 bg-white shadow-lg rounded-lg w-48 z-50 max-h-60 overflow-y-auto border border-gray-100">
+                <div className="absolute mt-1 bg-white shadow-lg rounded-lg w-48 z-50 max-h-60 overflow-y-auto border border-gray-100">
+                  {cities.map((cityName) => (
+                    <div 
+                      key={cityName}
+                      className={`px-3 py-2 hover:bg-gray-50 cursor-pointer text-sm ${
+                        selectedCity === cityName ? 'font-medium bg-gray-50' : ''
+                      }`}
+                      onClick={() => handleCitySelect(cityName)}
+                    >
+                      {cityName}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile City Selector */}
+            <div className="sm:hidden relative mr-6">
+              <div 
+                className="flex items-center gap-1 cursor-pointer bg-black text-white px-4 py-1 rounded-full text-sm font-medium hover:bg-gray-900 transition"
+                onClick={() => setShowCityDropdown(!showCityDropdown)}
+              >
+                <MapPin size={14} weight="fill" className="text-white" />
+                <span>{selectedCity}</span>
+                <CaretDown 
+                  size={12} 
+                  weight="bold"
+                  className={`transition-transform duration-200 text-white ${showCityDropdown ? 'rotate-180' : ''}`} 
+                />
+              </div>
+              
+              {showCityDropdown && (
+                <div className="absolute mt-1 bg-white shadow-lg rounded-lg w-48 z-50 max-h-60 overflow-y-auto border border-gray-100">
                   {cities.map((cityName) => (
                     <div 
                       key={cityName}
@@ -231,7 +231,7 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
             
             {/* Category Filters */}
             <div className="flex-grow overflow-x-auto hide-scrollbar">
-              <div className="flex space-x-6 py-1">
+              <div className="flex space-x-6 py-2.5">
                 {categories.map((category) => (
                   category.name === 'More' ? (
                     <div

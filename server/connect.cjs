@@ -1,4 +1,3 @@
-
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb+srv://chowk-me:chowk%401234@chowk-me.xnx3cyx.mongodb.net/?retryWrites=true&w=majority&appName=Chowk-me";
 
@@ -11,16 +10,41 @@ const client = new MongoClient(uri, {
   }
 });
 
-async function run() {
+async function connectToDatabase() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+    console.log("Successfully connected to MongoDB!");
+    return client;
+  } catch (error) {
+    console.error("Error connecting to MongoDB:", error);
+    throw error;
   }
 }
-run().catch(console.dir);
+
+async function getDatabase() {
+  const client = await connectToDatabase();
+  return client.db("chowk");
+}
+
+async function getCollection(collectionName) {
+  const db = await getDatabase();
+  return db.collection(collectionName);
+}
+
+async function closeConnection() {
+  try {
+    await client.close();
+    console.log("MongoDB connection closed");
+  } catch (error) {
+    console.error("Error closing MongoDB connection:", error);
+    throw error;
+  }
+}
+
+module.exports = {
+  connectToDatabase,
+  getDatabase,
+  getCollection,
+  closeConnection
+};
