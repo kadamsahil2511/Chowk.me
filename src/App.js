@@ -8,6 +8,7 @@ import PostFormModal from './components/PostFormModal';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import User from './pages/User/User';
+import Profile from './pages/User/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ProfileSettings from './pages/ProfileSettings';
@@ -75,7 +76,7 @@ function App() {
                   <Routes>
                     <Route path="/" element={<Home selectedCategory={selectedCategory} selectedCity={selectedCity} postCreated={postCreated} />} />
                     <Route path="/create-post" element={<CreatePost defaultCity={selectedCity} />} />
-                    <Route path="/:username" element={<User />} />
+                    <Route path="/:username" element={<Profile />} />
                     {/* Additional routes can be added here */}
                   </Routes>
                 </main>

@@ -6,6 +6,7 @@ import PostCard from '../components/PostCard';
 import PostDetailsModal from '../components/PostDetailsModal';
 import SkeletonLoader from '../components/SkeletonLoader';
 import { ShoppingBag, Check } from 'lucide-react';
+import data from '../data/data.json';
 
 const Home = ({ selectedCategory, selectedCity, postCreated }) => {
   const [posts, setPosts] = useState([]);
@@ -44,24 +45,14 @@ const Home = ({ selectedCategory, selectedCity, postCreated }) => {
   // Fetch and combine posts from API and localStorage
   const fetchPosts = useCallback(async () => {
     try {
-      // Fetch mock data from JSON file
-      const response = await fetch('/data.json');
-      const apiData = await response.json();
-      
-      // Get posts from localStorage
-      const localPosts = JSON.parse(localStorage.getItem('chowk_posts') || '[]');
-      
-      // Combine posts, with localStorage posts appearing first
-      const allPosts = [...localPosts, ...apiData];
-      
-      console.log('All posts loaded:', allPosts);
-      setPosts(allPosts);
-      setFilteredPosts(allPosts);
+      // Use imported data directly instead of fetching
+      setPosts(data);
+      setFilteredPosts(data);
       
       // Only feature posts from the current city
       const cityFilteredPosts = selectedCity ? 
-        allPosts.filter(post => post.location === selectedCity && post.featured) :
-        allPosts.filter(post => post.featured);
+        data.filter(post => post.location === selectedCity && post.featured) :
+        data.filter(post => post.featured);
         
       setFeaturedPosts(cityFilteredPosts);
       setLoading(false);

@@ -5,6 +5,7 @@ import { Mail, Twitter, Instagram, Linkedin, Github, Moon, Sun, Music } from 'lu
 import PostCard from '../../components/PostCard';
 import SkeletonLoader from '../../components/SkeletonLoader';
 import { useAuth } from '../../context/AuthContext';
+import { getUserData, getUserPosts } from '../../utils/dataUtils';
 
 const User = () => {
   const { username } = useParams();
