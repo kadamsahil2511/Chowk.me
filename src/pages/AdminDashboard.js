@@ -11,6 +11,7 @@ import {
   Check,
   X
 } from 'lucide-react';
+import data from '../data/data.json';
 
 const AdminDashboard = () => {
   const [posts, setPosts] = useState([]);
@@ -54,30 +55,9 @@ const AdminDashboard = () => {
 
   // Fetch posts from localStorage and API
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        // Get posts from localStorage
-        const localPosts = JSON.parse(localStorage.getItem('chowk_posts') || '[]');
-        
-        // Also fetch from mock API data
-        const response = await fetch('/data.json');
-        const apiData = await response.json();
-        
-        // Combine posts
-        const allPosts = [...localPosts, ...apiData];
-        setPosts(allPosts);
-      } catch (error) {
-        console.error('Error fetching posts:', error);
-        setNotification({
-          message: 'Failed to load posts. Please try again.',
-          type: 'error'
-        });
-      } finally {
-        setLoading(false);
-      }
-    };
-    
-    fetchPosts();
+    // Use imported data directly instead of fetching
+    setPosts(data);
+    setLoading(false);
   }, []);
 
   // Handle logout

@@ -1,0 +1,439 @@
+[
+  {
+    "id": 1,
+    "username": "startupguru",
+    "email": "startupguru@example.com",
+    "password": "hashed_password_1",
+    "name": "Aryan Sharma",
+    "bio": "Tech entrepreneur and startup advisor. Passionate about local business solutions.",
+    "location": "Dehradun",
+    "profilePic": "https://avatar.iran.liara.run/public/17",
+    "link": "https://example.com/startupguru",
+    "socialProfiles": {
+      "twitter": "startupguru",
+      "linkedin": "aryan-sharma",
+      "instagram": "startupguru",
+      "github": "startupguru"
+    },
+    "interests": ["Technology", "Entrepreneurship", "Business Strategy", "Local Commerce"],
+    "joinedDate": "2023-01-05"
+  },
+  {
+    "id": 2,
+    "username": "freelancer007",
+    "email": "freelancer007@example.com",
+    "password": "hashed_password_2",
+    "name": "Rajeev Kumar",
+    "bio": "Video producer and editor with 6+ years experience in creative content design.",
+    "location": "Dehradun",
+    "profilePic": "https://avatar.iran.liara.run/public/19",
+    "link": "https://example.com/freelancer007",
+    "socialProfiles": {
+      "twitter": "freelancer007",
+      "linkedin": "rajeev-kumar",
+      "instagram": "freelancer007",
+      "github": ""
+    },
+    "interests": ["Video Editing", "Motion Graphics", "Visual Storytelling", "Digital Media"],
+    "joinedDate": "2023-02-12"
+  },
+  {
+    "id": 3,
+    "username": "riderx",
+    "email": "riderx@example.com",
+    "password": "hashed_password_3",
+    "name": "Vivek Singh",
+    "bio": "Adventure enthusiast. Always looking for the next exciting journey.",
+    "location": "Dehradun",
+    "profilePic": "https://avatar.iran.liara.run/public/15",
+    "link": "https://example.com/riderx",
+    "socialProfiles": {
+      "twitter": "riderx",
+      "linkedin": "vivek-singh",
+      "instagram": "rider.x",
+      "github": ""
+    },
+    "interests": ["Travel", "Adventure Sports", "Photography", "Hiking"],
+    "joinedDate": "2023-03-07"
+  },
+  {
+    "id": 4,
+    "username": "techmentor",
+    "email": "techmentor@example.com",
+    "password": "hashed_password_4",
+    "name": "Neha Gupta",
+    "bio": "Software developer and educator. Helping others learn coding through practical projects.",
+    "location": "Mumbai",
+    "profilePic": "https://avatar.iran.liara.run/public/74",
+    "link": "https://example.com/techmentor",
+    "socialProfiles": {
+      "twitter": "techmentor",
+      "linkedin": "neha-gupta-tech",
+      "instagram": "tech.mentor",
+      "github": "techmentor"
+    },
+    "interests": ["Web Development", "React", "JavaScript", "Teaching", "Open Source"],
+    "joinedDate": "2023-01-20"
+  },
+  {
+    "id": 5,
+    "username": "foodiedelights",
+    "email": "foodiedelights@example.com",
+    "password": "hashed_password_5",
+    "name": "Priya Sharma",
+    "bio": "Food enthusiast and restaurant owner. Bringing delicious experiences to Bangalore since 2018.",
+    "location": "Bangalore",
+    "profilePic": "https://avatar.iran.liara.run/public/56",
+    "link": "https://example.com/foodiedelights",
+    "socialProfiles": {
+      "twitter": "foodiedelights",
+      "linkedin": "priya-sharma-food",
+      "instagram": "foodie.delights",
+      "github": ""
+    },
+    "interests": ["Culinary Arts", "Restaurant Management", "Food Photography", "Cuisine Fusion"],
+    "joinedDate": "2023-04-15"
+  },
+  {
+    "id": 6,
+    "username": "hikerlife",
+    "email": "hikerlife@example.com",
+    "password": "hashed_password_6",
+    "name": "Rahul Verma",
+    "bio": "Nature lover and trekking enthusiast. Leading groups to discover the hidden gems of India.",
+    "location": "Bangalore",
+    "profilePic": "https://avatar.iran.liara.run/public/42",
+    "link": "https://rahulverma.com",
+    "socialProfiles": {
+      "twitter": "hikerlife",
+      "linkedin": "rahul-verma",
+      "instagram": "hiker.life",
+      "github": ""
+    },
+    "interests": ["Hiking", "Nature Conservation", "Outdoor Activities", "Travel Photography"],
+    "joinedDate": "2023-05-22"
+  },
+  {
+    "id": 7,
+    "username": "techevents",
+    "email": "techevents@example.com",
+    "password": "hashed_password_7",
+    "name": "Kiran Reddy",
+    "bio": "Tech conference organizer and community builder. Connecting innovators in Hyderabad's tech ecosystem.",
+    "location": "Hyderabad",
+    "profilePic": "https://avatar.iran.liara.run/public/59",
+    "link": "https://techeventshyd.com",
+    "socialProfiles": {
+      "twitter": "techevents",
+      "linkedin": "kiran-reddy",
+      "instagram": "tech.events",
+      "github": "techevents"
+    },
+    "interests": ["Event Management", "Technology Conferences", "Networking", "Speaker Coordination"],
+    "joinedDate": "2022-11-10"
+  },
+  {
+    "id": 8,
+    "username": "designerjewels",
+    "email": "designerjewels@example.com",
+    "password": "hashed_password_8",
+    "name": "Anika Jaipur",
+    "bio": "Jewelry designer blending traditional techniques with contemporary aesthetics.",
+    "location": "Jaipur",
+    "profilePic": "https://avatar.iran.liara.run/public/80",
+    "link": "https://anikajewels.com",
+    "socialProfiles": {
+      "twitter": "designerjewels",
+      "linkedin": "anika-jaipur",
+      "instagram": "designer.jewels",
+      "github": ""
+    },
+    "interests": ["Jewelry Design", "Artisan Crafts", "Traditional Techniques", "Fashion"],
+    "joinedDate": "2023-02-05"
+  },
+  {
+    "id": 9,
+    "username": "gadgetlover",
+    "email": "gadgetlover@example.com",
+    "password": "hashed_password_9",
+    "name": "Rohan Mehta",
+    "bio": "Tech enthusiast and gadget reviewer. Always on the lookout for the latest tech innovations.",
+    "location": "Dehradun",
+    "profilePic": "https://avatar.iran.liara.run/public/21",
+    "link": "https://example.com/gadgetlover",
+    "socialProfiles": {
+      "twitter": "gadgetlover",
+      "linkedin": "rohan-mehta",
+      "instagram": "gadget.lover",
+      "github": "gadgetlover"
+    },
+    "interests": ["Technology", "Gadgets", "Reviews", "Consumer Electronics"],
+    "joinedDate": "2023-03-15"
+  },
+  {
+    "id": 10,
+    "username": "musicvibes",
+    "email": "musicvibes@example.com",
+    "password": "hashed_password_10",
+    "name": "Ananya Singh",
+    "bio": "Music promoter and event organizer. Bringing the best musical experiences to the city.",
+    "location": "Dehradun",
+    "profilePic": "https://avatar.iran.liara.run/public/23",
+    "link": "https://example.com/musicvibes",
+    "socialProfiles": {
+      "twitter": "musicvibes",
+      "linkedin": "ananya-singh",
+      "instagram": "music.vibes",
+      "github": ""
+    },
+    "interests": ["Music", "Event Management", "Live Performances", "Cultural Events"],
+    "joinedDate": "2023-02-20"
+  },
+  {
+    "id": 11,
+    "username": "mathwhiz",
+    "email": "mathwhiz@example.com",
+    "password": "hashed_password_11",
+    "name": "Arjun Patel",
+    "bio": "Mathematics educator with 8 years of teaching experience. Specializing in board exam preparation.",
+    "location": "Dehradun",
+    "profilePic": "https://avatar.iran.liara.run/public/25",
+    "link": "https://example.com/mathwhiz",
+    "socialProfiles": {
+      "twitter": "mathwhiz",
+      "linkedin": "arjun-patel",
+      "instagram": "math.whiz",
+      "github": ""
+    },
+    "interests": ["Mathematics", "Education", "Teaching", "Academic Coaching"],
+    "joinedDate": "2023-01-10"
+  },
+  {
+    "id": 12,
+    "username": "petlover",
+    "email": "petlover@example.com",
+    "password": "hashed_password_12",
+    "name": "Priya Malhotra",
+    "bio": "Animal welfare activist and pet care specialist. Running a pet adoption center.",
+    "location": "Dehradun",
+    "profilePic": "https://avatar.iran.liara.run/public/27",
+    "link": "https://example.com/petlover",
+    "socialProfiles": {
+      "twitter": "petlover",
+      "linkedin": "priya-malhotra",
+      "instagram": "pet.lover",
+      "github": ""
+    },
+    "interests": ["Animal Welfare", "Pet Care", "Adoption", "Veterinary Services"],
+    "joinedDate": "2023-04-05"
+  },
+  {
+    "id": 13,
+    "username": "foodiehunt",
+    "email": "foodiehunt@example.com",
+    "password": "hashed_password_13",
+    "name": "Rahul Kapoor",
+    "bio": "Food blogger and restaurant critic. Exploring the best culinary experiences in the city.",
+    "location": "Dehradun",
+    "profilePic": "https://avatar.iran.liara.run/public/29",
+    "link": "https://example.com/foodiehunt",
+    "socialProfiles": {
+      "twitter": "foodiehunt",
+      "linkedin": "rahul-kapoor",
+      "instagram": "foodie.hunt",
+      "github": ""
+    },
+    "interests": ["Food", "Restaurant Reviews", "Culinary Arts", "Food Photography"],
+    "joinedDate": "2023-03-22"
+  },
+  {
+    "id": 14,
+    "username": "englishpro",
+    "email": "englishpro@example.com",
+    "password": "hashed_password_14",
+    "name": "Meera Sharma",
+    "bio": "English language trainer with 10 years of experience. Specializing in communication skills.",
+    "location": "Dehradun",
+    "profilePic": "https://avatar.iran.liara.run/public/31",
+    "link": "https://example.com/englishpro",
+    "socialProfiles": {
+      "twitter": "englishpro",
+      "linkedin": "meera-sharma",
+      "instagram": "english.pro",
+      "github": ""
+    },
+    "interests": ["Language Training", "Communication Skills", "Public Speaking", "Education"],
+    "joinedDate": "2023-02-15"
+  },
+  {
+    "id": 15,
+    "username": "homeowner",
+    "email": "homeowner@example.com",
+    "password": "hashed_password_15",
+    "name": "Vikram Singh",
+    "bio": "Property manager and real estate consultant. Helping people find their perfect home.",
+    "location": "Dehradun",
+    "profilePic": "https://avatar.iran.liara.run/public/33",
+    "link": "https://example.com/homeowner",
+    "socialProfiles": {
+      "twitter": "homeowner",
+      "linkedin": "vikram-singh",
+      "instagram": "home.owner",
+      "github": ""
+    },
+    "interests": ["Real Estate", "Property Management", "Housing", "Investment"],
+    "joinedDate": "2023-01-25"
+  },
+  {
+    "id": 16,
+    "username": "workspacepro",
+    "email": "workspacepro@example.com",
+    "password": "hashed_password_16",
+    "name": "Aditya Verma",
+    "bio": "Co-working space entrepreneur. Creating productive work environments for professionals.",
+    "location": "Delhi",
+    "profilePic": "https://avatar.iran.liara.run/public/35",
+    "link": "https://example.com/workspacepro",
+    "socialProfiles": {
+      "twitter": "workspacepro",
+      "linkedin": "aditya-verma",
+      "instagram": "workspace.pro",
+      "github": ""
+    },
+    "interests": ["Co-working", "Business", "Entrepreneurship", "Office Space"],
+    "joinedDate": "2023-03-10"
+  },
+  {
+    "id": 17,
+    "username": "brandmaster",
+    "email": "brandmaster@example.com",
+    "password": "hashed_password_17",
+    "name": "Neha Kapoor",
+    "bio": "Brand strategist and graphic designer. Helping businesses create strong visual identities.",
+    "location": "Delhi",
+    "profilePic": "https://avatar.iran.liara.run/public/37",
+    "link": "https://example.com/brandmaster",
+    "socialProfiles": {
+      "twitter": "brandmaster",
+      "linkedin": "neha-kapoor",
+      "instagram": "brand.master",
+      "github": ""
+    },
+    "interests": ["Branding", "Graphic Design", "Marketing", "Visual Identity"],
+    "joinedDate": "2023-02-28"
+  },
+  {
+    "id": 18,
+    "username": "delhifoodie",
+    "email": "delhifoodie@example.com",
+    "password": "hashed_password_18",
+    "name": "Rajat Gupta",
+    "bio": "Food tour organizer and culinary expert. Showcasing Delhi's diverse food culture.",
+    "location": "Delhi",
+    "profilePic": "https://avatar.iran.liara.run/public/39",
+    "link": "https://example.com/delhifoodie",
+    "socialProfiles": {
+      "twitter": "delhifoodie",
+      "linkedin": "rajat-gupta",
+      "instagram": "delhi.foodie",
+      "github": ""
+    },
+    "interests": ["Food Tours", "Culinary Arts", "Street Food", "Food Photography"],
+    "joinedDate": "2023-04-01"
+  },
+  {
+    "id": 19,
+    "username": "techseller",
+    "email": "techseller@example.com",
+    "password": "hashed_password_19",
+    "name": "Amit Kumar",
+    "bio": "Tech reseller and gadget expert. Providing quality tech products at competitive prices.",
+    "location": "Delhi",
+    "profilePic": "https://avatar.iran.liara.run/public/41",
+    "link": "https://example.com/techseller",
+    "socialProfiles": {
+      "twitter": "techseller",
+      "linkedin": "amit-kumar",
+      "instagram": "tech.seller",
+      "github": ""
+    },
+    "interests": ["Technology", "Gadgets", "Sales", "Consumer Electronics"],
+    "joinedDate": "2023-03-05"
+  },
+  {
+    "id": 20,
+    "username": "laughfactory",
+    "email": "laughfactory@example.com",
+    "password": "hashed_password_20",
+    "name": "Varun Sharma",
+    "bio": "Comedy event organizer and stand-up comedy promoter. Bringing laughter to the city.",
+    "location": "Delhi",
+    "profilePic": "https://avatar.iran.liara.run/public/43",
+    "link": "https://example.com/laughfactory",
+    "socialProfiles": {
+      "twitter": "laughfactory",
+      "linkedin": "varun-sharma",
+      "instagram": "laugh.factory",
+      "github": ""
+    },
+    "interests": ["Comedy", "Event Management", "Entertainment", "Stand-up Comedy"],
+    "joinedDate": "2023-02-10"
+  },
+  {
+    "id": 21,
+    "username": "photographer",
+    "email": "photographer@example.com",
+    "password": "hashed_password_21",
+    "name": "Sneha Reddy",
+    "bio": "Professional photographer specializing in travel and landscape photography.",
+    "location": "Mumbai",
+    "profilePic": "https://avatar.iran.liara.run/public/45",
+    "link": "https://example.com/photographer",
+    "socialProfiles": {
+      "twitter": "photographer",
+      "linkedin": "sneha-reddy",
+      "instagram": "photo.grapher",
+      "github": ""
+    },
+    "interests": ["Photography", "Travel", "Landscape", "Photo Editing"],
+    "joinedDate": "2023-03-20"
+  },
+  {
+    "id": 22,
+    "username": "travelbug",
+    "email": "travelbug@example.com",
+    "password": "hashed_password_22",
+    "name": "Rohit Malhotra",
+    "bio": "Travel enthusiast and trip organizer. Creating memorable travel experiences.",
+    "location": "Mumbai",
+    "profilePic": "https://avatar.iran.liara.run/public/47",
+    "link": "https://example.com/travelbug",
+    "socialProfiles": {
+      "twitter": "travelbug",
+      "linkedin": "rohit-malhotra",
+      "instagram": "travel.bug",
+      "github": ""
+    },
+    "interests": ["Travel", "Adventure", "Tourism", "Photography"],
+    "joinedDate": "2023-02-25"
+  },
+  {
+    "id": 23,
+    "username": "propertyguru",
+    "email": "propertyguru@example.com",
+    "password": "hashed_password_23",
+    "name": "Anil Kumar",
+    "bio": "Real estate expert and property consultant. Helping people find their dream homes.",
+    "location": "Mumbai",
+    "profilePic": "https://avatar.iran.liara.run/public/49",
+    "link": "https://example.com/propertyguru",
+    "socialProfiles": {
+      "twitter": "propertyguru",
+      "linkedin": "anil-kumar",
+      "instagram": "property.guru",
+      "github": ""
+    },
+    "interests": ["Real Estate", "Property Management", "Housing", "Investment"],
+    "joinedDate": "2023-03-30"
+  }
+]
