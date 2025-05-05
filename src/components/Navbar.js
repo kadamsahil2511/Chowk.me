@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MagnifyingGlass, CaretDown, MapPin, List, X, User as UserIcon } from 'phosphor-react';
+import { MagnifyingGlass, CaretDown, MapPin,   } from 'phosphor-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -8,6 +8,7 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
   const { currentUser, logout } = useAuth();
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [showMoreDropdown, setShowMoreDropdown] = useState(false);
+  // Remove unused state setter
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -71,7 +72,9 @@ const Navbar = ({ onCategorySelect, selectedCity, onCityChange, activeCategory =
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [setShowUserMenu]); // Add setShowUserMenu to useEffect dependencies
+
+  // Either remove handleLogout if not used, or add it to the UI where needed
   
   const handleCategoryClick = (category) => {
     setLocalActiveCategory(category);

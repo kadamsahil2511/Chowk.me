@@ -9,7 +9,7 @@ import {
   LogOut,
   AlertTriangle,
   Check,
-  X
+
 } from 'lucide-react';
 import data from '../data/data.json';
 

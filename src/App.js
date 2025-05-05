@@ -1,3 +1,4 @@
+// Remove the unused import
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -7,7 +8,7 @@ import CreatePost from './pages/CreatePost';
 import PostFormModal from './components/PostFormModal';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
-import User from './pages/User/User';
+// Remove: import User from './pages/User/User';
 import Profile from './pages/User/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
