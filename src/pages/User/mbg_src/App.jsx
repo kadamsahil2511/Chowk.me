@@ -15,7 +15,7 @@ function App() {
   const [w, setW] = useState(0);
 
   return (
-    <main className="bg-[#f7f2f2] ">
+    <main className="bg-[#00000000] ">
       <Navbar
         tab={tab}
         setTab={setTab}

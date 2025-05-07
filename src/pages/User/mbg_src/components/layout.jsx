@@ -37,18 +37,19 @@ function Layout({ tab, setTab, left, sliderWidth }) {
   );
 
   return (
-    <div className="w-screen m-auto flex justify-between b-10">
+    <div className="relative w-full h-full" style={{background: 'transparent'}}>
       <ResponsiveReactGridLayout
-        className="m-auto w-[900px]"
+        className="w-full"
         breakpoints={{ xl: 1200, lg: 899, md: 768, sm: 480, xs: 200 }}
         cols={{ xl: 3, lg: 3, md: 2, sm: 1, xs: 1 }}
         rowHeight={300}
         layouts={currentlayout}
+        style={{ margin: 0, padding: 0 }}
       >
         {keys.map((key) => (
           <div
             key={key}
-            className="bg-[#f5f5f7] flex justify-center items-center shadow-[inset_0_0_0_2px_rgba(0,0,0,0)] rounded-2xl text-2xl text-[#1d1d1f] visible cursor-grab active:cursor-grabbing"
+            className="bg-white flex justify-center items-center shadow rounded-2xl text-2xl text-[#111827] visible cursor-grab active:cursor-grabbing"
           >
             <Block keyProp={key} />
           </div>
@@ -60,7 +61,7 @@ function Layout({ tab, setTab, left, sliderWidth }) {
 
 const Block = ({ keyProp }) => {
   return (
-    <div className="h-full w-full flex flex-col justify-center items-center p-6 bg-white text-[var(--black-1)] rounded-2xl text-3xl uppercase">
+    <div className="h-full w-full flex flex-col justify-center items-center p-6 bg-white text-[#111827] rounded-2xl text-3xl uppercase">
       {keyProp}
     </div>
   );

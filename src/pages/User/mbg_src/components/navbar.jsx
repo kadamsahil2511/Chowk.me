@@ -33,33 +33,19 @@ function Navbar({ tab, setTab, left = 0, sliderWidth = 0, setX, setW }) {
 	}, [tab]);
 
 	return (
-		<div className="navbar bg-black-1 text-white mx-auto sticky top-0 z-[10000] backdrop-saturate-180 backdrop-blur-lg md:display-none pt-2">
-			<div className="bg-white max-w-[900px] m-auto rounded-full text-1.8rem border-b border-gray-200 p-[3px]">
-				<div className="flex rounded-33px p-2 justify-between items-center text-[#111827] max-w-[900px] mx-auto">
-					{tabs.map(({ key, label }) => (
-						<div
-							key={key}
-							ref={(el) => {
-								tabRefs.current[key] = el;
-							}}
-							className={`tab flex items-center h-8 flex-1 cursor-pointer justify-center ${
-								tab === key ? "text-black" : "text-black-300"
-							}`}
-							onClick={() => setTab(key)}
-						>
-							{label}
-						</div>
-					))}
-					<div
-						className="absolute h-10 bg-[#fc205e]/40 border border-[#fc205e] rounded-full z-20"
-						style={{
-							left: `${left}px`,
-							width: `${sliderWidth}px`,
-							transition: "left 0.38s cubic-bezier(0.5, 0, 0, 0.75)",
-						}}
-					></div>
+		<div className="flex flex-row gap-4 items-center py-2 px-2 bg-transparent">
+			{tabs.map(({ key, label }) => (
+				<div
+					key={key}
+					ref={(el) => {
+						tabRefs.current[key] = el;
+					}}
+					className={`tab flex items-center h-8 px-4 cursor-pointer justify-center font-medium text-base text-[#111827] ${tab === key ? 'border-b-2 border-black' : ''}`}
+					onClick={() => setTab(key)}
+				>
+					{label}
 				</div>
-			</div>
+			))}
 		</div>
 	);
 }
