@@ -66,36 +66,36 @@ const CreatePost = () => {
     }
     
     setIsSubmitting(true);
-    setSubmitLoading(true); // Show skeleton loader
+    setSubmitLoading(true);
     setError('');
     
     try {
-      // In a real app, you would send this data to your backend API
-      // For now, we'll simulate a successful post creation
-      
       // Create a new post object
       const newPost = {
-        id: Date.now(), // Generate a temporary ID
         title: formData.title,
         description: formData.description,
         category: formData.category,
-        username: currentUser?.username || 'anonymous', // Use the username from current user
+        username: currentUser?.username || 'anonymous',
         location: formData.location,
         image: formData.imagePreview || `https://picsum.photos/seed/${formData.category}/400/250`,
-        featured: false,
-        timestamp: new Date().toISOString(),
-        link: formData.link // Added link to the post object
+        link: formData.link
       };
       
-      // In a real application, you would send this data to your backend
-      console.log('Submitting post:', newPost);
-      
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // For demonstration purposes, we'll store the new post in localStorage
-      const existingPosts = JSON.parse(localStorage.getItem('chowk_posts') || '[]');
-      localStorage.setItem('chowk_posts', JSON.stringify([newPost, ...existingPosts]));
+      // Send the post to the backend API
+      const response = await fetch('http://localhost:5000/api/posts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newPost),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create post');
+      }
+
+      const createdPost = await response.json();
+      console.log('Post created:', createdPost);
       
       // Redirect to home page after successful post
       navigate('/', { state: { newPostAdded: true } });

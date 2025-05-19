@@ -45,7 +45,15 @@ const Home = ({ selectedCategory, selectedCity, postCreated }) => {
   // Fetch and combine posts from API and localStorage
   const fetchPosts = useCallback(async () => {
     try {
-      // Use imported data directly instead of fetching
+      setLoading(true);
+      // Fetch posts from API with category and city filters
+      const response = await fetch(`http://localhost:5000/api/posts?category=${activeCategory}&location=${selectedCity}`);
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch posts');
+      }
+      
+      const data = await response.json();
       setPosts(data);
       setFilteredPosts(data);
       
@@ -55,12 +63,12 @@ const Home = ({ selectedCategory, selectedCity, postCreated }) => {
         data.filter(post => post.featured);
         
       setFeaturedPosts(cityFilteredPosts);
-      setLoading(false);
     } catch (error) {
       console.error('Error fetching posts:', error);
+    } finally {
       setLoading(false);
     }
-  }, [selectedCity]);
+  }, [selectedCity, activeCategory]);
 
   // Sync local activeCategory with the one passed from App.js
   useEffect(() => {
